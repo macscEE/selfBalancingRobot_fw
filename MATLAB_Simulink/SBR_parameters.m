@@ -31,8 +31,11 @@ pol_car = s*( MfD(1,1)*MfD(3,3) - MfD(1,3)*MfD(3,1) ) + MfD(1,1)*MfD(3,2);
 
 % transfer function
 
-W = c*(s*I-A)^(-1)*b;
+W = tf(c*(s*I-A)^(-1)*b);
+p = pole(W);
 
-% printing transfer function
-%disp("The transfer function is: ");
+% negletting the more distance pole
+[num_W, den_W] = tfdata(W, 'v');
+W_appr = num_W/((s - p(2))*(s - p(3)));
 
+bodeplot(W_appr);
