@@ -20,7 +20,7 @@ double Kp=2, Ki=5, Kd=1;
 MPU6050 mpu;
 
 // Create a PID controller object
-PID myPID(&Input, &Output, &Setpoint, Kp, Ki, Kd, DIRECT);
+PID controller(&Input, &Output, &Setpoint, Kp, Ki, Kd, DIRECT);
 
 void setup() {
   pinMode(SDA_PIN, INPUT);
@@ -47,7 +47,7 @@ void setup() {
 
   // Imposta il setpoint iniziale
   Setpoint = 180; // Target angle in degrees
-  myPID.SetMode(AUTOMATIC); // Attiva il PID controller
+  controller.SetMode(AUTOMATIC); // Attiva il PID controller
 
   Serial.println("Setup completato!");
   delay(1000);
