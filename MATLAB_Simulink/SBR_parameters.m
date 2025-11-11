@@ -41,7 +41,7 @@ pol_car = s*( MfD(1,1)*MfD(3,3) - MfD(1,3)*MfD(3,1) ) + MfD(1,1)*MfD(3,2);
 G = tf(c*(s*I-A)^(-1)*b);
 p = pole(G);
 
-% negletting the more distance pole
+% neglecting the hf pole
 [num_W, den_W] = tfdata(G, 'v');
 G_appr = num_W(4)/((s - p(2))*(s - p(3)));
 
