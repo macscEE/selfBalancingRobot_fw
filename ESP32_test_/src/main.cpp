@@ -46,7 +46,7 @@ void setup() {
   mpu.PrintActiveOffsets();  // Mostra gli offset calcolati
 
   // Imposta il setpoint iniziale
-  Setpoint = 180; // Target angle in degrees
+  Setpoint = PI; // Target angle in degrees
   controller.SetMode(AUTOMATIC); // Attiva il PID controller
 
   Serial.println("Setup completato!");
@@ -54,9 +54,13 @@ void setup() {
 }
 
 void loop() {
-  int16_t ax, ay, az, gx, gy, gz;
 
+  int16_t ax, ay, az, gx, gy, gz;
+  mpu.getMotion6(&ax, &ay, &az, &gx, &gy, &gz); // Legge i dati grezzi da MPU6050
+ 
   // Input of PID will be the y-axis angle
-  // Input = mpu.getAngleY(&ay);
+  Input = ay; // in radians
+  controller.Compute(); // Calcola il nuovo output del PID
+  controller.SetOutputLimits(-255, 255); // Limita l'output tra -255 e 255 -> da cambiare in modo tale che siano da -6 a 6 V, 
 
 }

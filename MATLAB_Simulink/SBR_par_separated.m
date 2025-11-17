@@ -3,17 +3,20 @@
 % Using stand-alone model of DC motor and inverse pendulum to derive
 % transfer function
 
+clc;
+clearvars;
+
 % Motor: DFRobot DC Transmission Motor with Encoder - 6V - 160RPM
 
 % Inverse pendulum data
 m = 0.3;    % [Kg] total mass, considering also motors and battery
 g = 9.81;   % [m/s^2] gravity acceleration
-l = 0.5;    % [m] length of the pendulum
+l = 0.25;    % [m] length of the pendulum
 J = m*l^2;  % [Kg*m^2] moment of inertia of inverse pendulum
 
 % DC motor parameters
 R = 3.5;    % [ohm] measured resistance
-L = 1e-2;   % [H] to be measured
+L = 50e-6;   % [H] to be measured, stimata da ChatGPT
 KePhi = 0.336; % [V*s] torque costant (Va_max-Ra*Ia)*1/Omega_max 
 k_gear = 120;   % gear ratio
 
@@ -22,11 +25,35 @@ k_gear = 120;   % gear ratio
 s = tf('s');
 
 % between torque to angle of the inverse pendulum
-G_ang_torq = 1/(J*s^2 - J*g/l);
-figure('Name', 'Transfer function of the inverse pendulum');
-bode(G_ang_torq);
+G_torq_ang = (1/J) *(1/(s^2 - g/l));
+% figure('Name', 'Transfer function of the inverse pendulum');
+% bode(G_ang_torq);
 
 % between voltage to torque of the DC motor
-G_torq_volt = KePhi/(R + L*s);  % Transfer function from voltage to torque
-figure('Name', 'Transfer function of the DC motor');
-bode(G_torq_volt);
+G_volt_torq = KePhi * k_gear/(R + L*s);  % Transfer function from voltage to torque
+% figure('Name', 'Transfer function of the DC motor');
+% bode(G_torq_volt);
+
+% total transfer function
+G_sys = G_volt_torq*G_torq_ang;
+
+%% Requirements: tempo di salita e overshoot
+
+ts = 50e-3; % rise time
+M = 0.15;  % overshoot: percentuale 7.5/6 (massima tensione che può accettare) = 0.2 -> margine di sicurezza
+
+fct = 2/(ts*2*pi);
+pmt = 1.04 - 0.8*M;
+
+opt = pidtuneOptions;
+opt.PhaseMargin = 180*pmt/pi;
+
+[gi, info] = pidtune(G_sys, 'pidf', 2*pi*fct, opt);    % 'pidf' così ho il filtro in HF
+
+G_reg = gi.Kp + gi.Ki/s + gi.Kd*s/(1+s*gi.Tf);
+
+fprintf('PID parameters: Kp %.2f, Ki %.2f, Kd %.2f, Tf %.2f [msec] \n', gi.Kp, gi.Ki, gi.Kd, gi.Tf*1e3);
+
+[Nreg, Dreg] = tfdata(G_reg, 'v');    % 'v' per averceli in vettore
+% margin(G_reg*G_sys);
+% grid on;
