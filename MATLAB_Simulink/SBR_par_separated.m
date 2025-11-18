@@ -9,9 +9,9 @@ clearvars;
 % Motor: DFRobot DC Transmission Motor with Encoder - 6V - 160RPM
 
 % Inverse pendulum data
-m = 0.3;    % [Kg] total mass, considering also motors and battery
+m = 0.1;    % [Kg] total mass, considering also motors and battery
 g = 9.81;   % [m/s^2] gravity acceleration
-l = 0.25;    % [m] length of the pendulum
+l = 0.08;    % [m] length of the pendulum
 J = m*l^2;  % [Kg*m^2] moment of inertia of inverse pendulum
 
 % DC motor parameters
@@ -52,7 +52,7 @@ opt.PhaseMargin = 180*pmt/pi;
 
 G_reg = gi.Kp + gi.Ki/s + gi.Kd*s/(1+s*gi.Tf);
 
-fprintf('PID parameters: Kp %.2f, Ki %.2f, Kd %.2f, Tf %.2f [msec] \n', gi.Kp, gi.Ki, gi.Kd, gi.Tf*1e3);
+fprintf('PID parameters: Kp %.4f, Ki %.4f, Kd %.4f, Tf %.2f [msec] \n', gi.Kp, gi.Ki, gi.Kd, gi.Tf*1e3);
 
 [Nreg, Dreg] = tfdata(G_reg, 'v');    % 'v' per averceli in vettore
 % margin(G_reg*G_sys);
