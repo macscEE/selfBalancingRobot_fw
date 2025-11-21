@@ -8,13 +8,19 @@
 #define SDA_PIN 21
 #define SCL_PIN 22
 
-#define M_R_forward 5
+#define M_R_forward 18
 #define M_R_backward 17
 #define M_L_forward 4
 #define M_L_backward 16
  
 // Target angle in degrees
 #define reference 0 
+
+#define CH_M_R_forward 0
+#define CH_M_R_backward 1
+#define CH_M_L_forward 2
+#define CH_M_L_backward 3
+
 
 /* Define PID parameters
  Input => Measured value
@@ -23,8 +29,8 @@
  double Setpoint, Input, Output;
 
 // PID tuning parameters
-double Kp=0.01, Ki=0.1379, Kd=0.0022;
-
+double Kp=0.8, Ki=0.1379, Kd=0.0022;
+//double Kp = 140;double Ki = 10;double Kd = 3; <== VALORI A CASO PER TEST
 // Create an MPU6050 object
 MPU6050 mpu;
 
@@ -35,19 +41,25 @@ PID controller(&Input, &Output, &Setpoint, Kp, Ki, Kd, DIRECT);
 int16_t ax, ay, az, gx, gy, gz;
 
 // Variables for angle calculations
-float pitchAcc, pitchGyro;
+double pitchAcc, pitchGyro;
 
 // Complementary filter parameters
-float alpha = 0.98; // Complementary filter coefficient -> higher value gives more weight to gyroscope
-float dt = 0.01;   // Time interval in seconds
-float angle = 0;   // Filtered angle
+double alpha = 0.98; // Complementary filter coefficient -> higher value gives more weight to gyroscope
+double dt = 0.01;   // Time interval in seconds
+double angle = 0;   // Filtered angle
 
 // PWM definition at 12 bit
 // Impostazioni PWM
 const int pins[] = {M_R_forward, M_R_backward, M_L_forward, M_L_backward};
-const int chanels[] = {0, 1, 2, 3};
-const int freq = 19531;  // Frequenza massima per 12 bit (80 MHz / 4096)
-const int res = 12;     // Risoluzione a 12 bit (0–4095)
+const int channels[] = {CH_M_R_forward, CH_M_R_backward, CH_M_L_forward, CH_M_L_backward};
+const int freq = 100;//19531;  // Frequenza massima per 12 bit (80 MHz / 4096)
+const int res = 8;     // Risoluzione a 12 bit (0–4095)
+
+void angleEstimation();
+void motorControl();
+void PIDresponse();
+
+
 
 void setup() {
   
@@ -69,7 +81,9 @@ void setup() {
     while (1);
   }
   Serial.println("MPU6050 connesso correttamente!");
-  
+  // Sensor range adjustment (cover at least 180°)
+  mpu.setFullScaleGyroRange(MPU6050_GYRO_FS_250); // set gyro range to maximum 250 degrees (best resolution)
+  mpu.setFullScaleAccelRange(MPU6050_ACCEL_FS_8); // set accelerometer range to maximum 8g (a bit much, try reducing if problems arise)
   // Calibra i sensori
   mpu.CalibrateAccel(6);  // 6 = numero di campioni
   mpu.CalibrateGyro(6);
@@ -85,21 +99,23 @@ void setup() {
 
   // Configura i canali PWM
   for (int i = 0; i < 4; i++) {
-    ledcSetup(chanels[i], freq, res);
-    ledcAttachPin(pins[i], chanels[i]);
+    ledcSetup(channels[i], freq, res);
+    ledcAttachPin(pins[i], channels[i]);
   }
   delay(1000);
 }
 
 void loop() {
   mpu.getMotion6(&ax, &ay, &az, &gx, &gy, &gz); // Legge i dati grezzi da MPU6050
- 
+  ax = ax * 0.002392578; // (9.8/4096) for 8g acceleration range
+  ay = ay * 0.002392578; 
+  az = az * 0.002392578;
   angleEstimation(); // Stima l'angolo usando il filtro complementare
 
   PIDresponse(); // Calcola la risposta del PID 
 
   // Serial.println("Output PID: " + String(Output) + "\t");
-  Serial.println("Input (Angolo Y): " + String(angle) + "\t");
+  Serial.println("Input (Angolo Y): " + String(angle) + " " + String(pitchAcc) + " " + String(pitchGyro) + " "+ String(Output));//+ "\t");//
 
   motorControl(); // Controlla i motori in base all'output del PID
 }
@@ -108,13 +124,14 @@ void loop() {
 void angleEstimation(){
   
   // Estimation pitch angle (y-axis) accelerometer
-  pitchAcc = atan2(az, ax)*180/PI; // in degrees
+  pitchAcc = atan2(ay, az)*(360/PI); // in degrees
 
   // Estimation pitch angle (y-axis) gyroscope
-  pitchGyro = gy / 131.0; // in degrees/s, The value 131.0 corresponds to the sensitivity of the gyroscope at its default ±250°/s range
+  pitchGyro = gx * 0.007629395; // [deg/s] (res of the gyroscope for ±250°/s range)
   
   // Complementary filter to combine accelerometer and gyroscope data
   angle = alpha * (angle + pitchGyro * dt) + (1 - alpha) * pitchAcc;
+  //angle = pitchGyro * dt;
 }
 
 // PID response function
@@ -122,7 +139,7 @@ void PIDresponse(){
 // Input of PID will be the y-axis angle
   Input = angle * PI/180; // in radians
   controller.Compute(); // Calcola il nuovo output del PID
-  controller.SetOutputLimits(-4095, 4095); // Limita l'output tra -4095 e 4095 (12 bit)
+  controller.SetOutputLimits(-255, 255);//(-4095, 4095); // Limita l'output tra -4095 e 4095 (12 bit)
 }
 
  // Control motors based on PID output
@@ -130,23 +147,23 @@ void motorControl(){
 
   if (Output > 0) {
     // Move forward
-    analogWrite(M_R_forward, Output);
-    analogWrite(M_R_backward, 0);
-    analogWrite(M_L_forward, Output);
-    analogWrite(M_L_backward, 0);
+    ledcWrite(CH_M_R_forward, Output);//analogWrite(M_R_forward, Output);
+    ledcWrite(CH_M_R_backward, 0);
+    ledcWrite(CH_M_L_forward, Output);
+    ledcWrite(CH_M_L_backward, 0);
   } 
   else if (Output < 0) {
     // Move backward
-    analogWrite(M_R_forward, 0);
-    analogWrite(M_R_backward, -Output);
-    analogWrite(M_L_forward, 0);
-    analogWrite(M_L_backward, -Output);
+    ledcWrite(CH_M_R_forward, 0);
+    ledcWrite(CH_M_R_backward, -Output);
+    ledcWrite(CH_M_L_forward, 0);
+    ledcWrite(CH_M_L_backward, -Output);
   } 
   else {
     // Stop
-    analogWrite(M_R_forward, 0);
-    analogWrite(M_R_backward, 0);
-    analogWrite(M_L_forward, 0);
-    analogWrite(M_L_backward, 0);
+    ledcWrite(CH_M_R_forward, 0);
+    ledcWrite(CH_M_R_backward, 0);
+    ledcWrite(CH_M_L_forward, 0);
+    ledcWrite(CH_M_L_backward, 0);
   }
 }
