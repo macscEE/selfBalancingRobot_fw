@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1764018671.21836 "c:/Users/banom/OneDrive - Università degli Studi di Padova/Università/Magistrale/Secondo anno/Modelling and Control of Electric Drives/progetto/selfBalancingRobot_fw/report/main_report.tex" "main_report.pdf" "main_report" 1764018673.03469 0
+["pdflatex"] 1764019001.27973 "c:/Users/banom/OneDrive - Università degli Studi di Padova/Università/Magistrale/Secondo anno/Modelling and Control of Electric Drives/progetto/selfBalancingRobot_fw/report/main_report.tex" "main_report.pdf" "main_report" 1764019003.83099 0
   "C:/Users/banom/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1764017906 157476 836f50a025a0ef37f9a015bb4bf92ccc ""
   "C:/Users/banom/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1764017900 13333512 65c6c40ae6689fbda8fc2877f49c913c ""
   "C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc" 1736607166 3136 bbe665bd0bb471a2da1e8fd326cff9fa ""
@@ -94,13 +94,13 @@
   "C:/Users/banom/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
   "C:/Users/banom/AppData/Local/Programs/MiKTeX/tex/latex/xpatch/xpatch.sty" 1585221260 8510 7803f78066c4f9d008405191a4b43073 ""
   "C:/Users/banom/AppData/Local/Programs/MiKTeX/tex/latex/xstring/xstring.sty" 1693735632 123 a302f2c651a95033260db60e51527ae8 ""
-  "c:/Users/banom/OneDrive - Università degli Studi di Padova/Università/Magistrale/Secondo anno/Modelling and Control of Electric Drives/progetto/selfBalancingRobot_fw/report/main_report.tex" 1764018668 809 1fcfafba20c518e655ddd55919061aa5 ""
+  "c:/Users/banom/OneDrive - Università degli Studi di Padova/Università/Magistrale/Secondo anno/Modelling and Control of Electric Drives/progetto/selfBalancingRobot_fw/report/main_report.tex" 1764018999 896 79548c0dedc7e10c35d0ef407f1047b6 ""
   "chapter/00_frontmatter.tex" 1764018499 1729 760ab4f0040336387e954aa54fd80ece ""
   "figures/frontmatter/0_logo_dei.pdf" 1764001548 55776 9dffffbf3dcb61dbb9159b7486f1fce5 ""
   "figures/frontmatter/0_logo_unipd.pdf" 1764001550 70588 1007d6f895493b218215ed467474f2e5 ""
   "figures/frontmatter/unipdbg.pdf" 1763907165 481021 25f104b4c67245f6f4135df115c84482 ""
-  "main_report.aux" 1764018672 150 9e69c8ebe4d614f4b5b2fbc9b60f2e78 "pdflatex"
-  "main_report.tex" 1764018668 809 1fcfafba20c518e655ddd55919061aa5 ""
+  "main_report.aux" 1764019003 150 9e69c8ebe4d614f4b5b2fbc9b60f2e78 "pdflatex"
+  "main_report.tex" 1764018999 896 79548c0dedc7e10c35d0ef407f1047b6 ""
   (generated)
   "main_report.aux"
   "main_report.log"
