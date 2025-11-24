@@ -1,0 +1,48 @@
+\begin{titlepage}
+\AddToShipoutPictureBG*{%
+    \put(-350,0){
+        \includegraphics[width=1.4\linewidth]{figures/frontmatter/unipdbg.pdf}%
+    }
+}
+    % solo il frontespizio deve essere simmetrico rispetto ai margini interno ed esterno
+    \newgeometry{hmargin=2.5cm,vmargin=2cm}
+        \begin{figure}
+            \centering
+            \begin{subfigure}[b]{0.4\textwidth}
+                \includegraphics[width=\textwidth]{figures/frontmatter/0_logo_dei.pdf}
+            \end{subfigure}
+            \hfill
+            \begin{subfigure}[b]{0.3\textwidth}
+                \includegraphics[width=\textwidth]{figures/frontmatter/0_logo_unipd.pdf}
+            \end{subfigure}
+        \end{figure}
+    
+        \vspace*{\stretch{0.5}}
+        
+        \begin{center}
+            \makeatletter % serve per poter usare \@...
+            \textsc{Department of Information Engineering}\\
+            \vspace*{\stretch{0.1}}
+            \textsc{Course of Modelling and Control of Electric Drives}\\
+    
+            \vspace*{\stretch{0.5}}
+            \LARGE
+            \textbf{\@title}
+    
+            \vspace*{\stretch{1}}
+            \normalsize
+            \begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} r}
+                \textbf{Lecturer} & \textbf{Students} \\
+                \supervisor& \@author\\
+                \\ & \textbf{ID Numbers} \\ & 2139251-XXXXXXX
+               % \textbf{Correlatore} \\
+              %  \assistantsupervisor \\
+            \end{tabular*}
+    
+            \vspace*{\stretch{2}}
+            \textsc{Accademic Year 2025-2026} \\
+            \makeatother % serve dopo \makeatletter
+        \end{center}
+    \restoregeometry
+\end{titlepage}
+
