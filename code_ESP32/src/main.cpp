@@ -29,7 +29,7 @@
  double Setpoint, Input, Output;
 
 // PID tuning parameters
-double Kp=0.8, Ki=0.1379, Kd=0.0022;
+double Kp=400, Ki=30, Kd=0.0022;
 //double Kp = 140;double Ki = 10;double Kd = 3; <== VALORI A CASO PER TEST
 // Create an MPU6050 object
 MPU6050 mpu;
@@ -44,7 +44,7 @@ int16_t ax, ay, az, gx, gy, gz;
 double pitchAcc, pitchGyro;
 
 // Complementary filter parameters
-double alpha = 0.50; // Complementary filter coefficient -> higher value gives more weight to gyroscope
+double alpha = 0.30; // Complementary filter coefficient -> higher value gives more weight to gyroscope
 double dt = 0.01;   // Time interval in seconds
 double angle = 0;   // Filtered angle
 
@@ -56,7 +56,7 @@ const int freq = 100;//19531;  // Frequenza massima per 12 bit (80 MHz / 4096)
 const int res = 8;     // Risoluzione a 12 bit (0–4095)
 
 void angleEstimation();
-void motorControl();
+void motorControl(int16_t pwm);
 void PIDresponse();
 
 
@@ -113,9 +113,9 @@ void loop() {
   angleEstimation(); // Stima l'angolo usando il filtro complementare
 
   PIDresponse(); // Calcola la risposta del PID 
-  delay(10); 
+  delay(1); 
   // Serial.println("Output PID: " + String(Output) + "\t");
-  motorControl(); // Controlla i motori in base all'output del PID
+  motorControl(Output); // Controlla i motori in base all'output del PID
   Serial.println("Input (Angolo Y): " + String(angle) + " " + String(pitchAcc) + " " + String(pitchGyro) + " "+ String(Output));     //+ "\t");//
 }
 
@@ -130,6 +130,7 @@ void angleEstimation(){
   
   // Complementary filter to combine accelerometer and gyroscope data
   angle = alpha * (angle + pitchGyro * dt) + (1 - alpha) * pitchAcc;
+  //angle = angle * (PI/180);
   //angle = pitchGyro * dt;
 }
 
@@ -142,21 +143,21 @@ void PIDresponse(){
 }
 
  // Control motors based on PID output
-void motorControl(){
+void motorControl(int16_t pwm){
 
   if (Output > 0) {
     // Move forward
-    ledcWrite(CH_M_R_forward, Output);//analogWrite(M_R_forward, Output);
+    ledcWrite(CH_M_R_forward, pwm);//analogWrite(M_R_forward, Output);
     ledcWrite(CH_M_R_backward, 0);
-    ledcWrite(CH_M_L_forward, Output);
+    ledcWrite(CH_M_L_forward, pwm);
     ledcWrite(CH_M_L_backward, 0);
   } 
   else if (Output < 0) {
     // Move backward
     ledcWrite(CH_M_R_forward, 0);
-    ledcWrite(CH_M_R_backward, -Output);
+    ledcWrite(CH_M_R_backward, -pwm);
     ledcWrite(CH_M_L_forward, 0);
-    ledcWrite(CH_M_L_backward, -Output);
+    ledcWrite(CH_M_L_backward, -pwm);
   } 
   else {
     // Stop
