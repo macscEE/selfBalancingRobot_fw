@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.24)  24 NOV 2025 22:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.24)  25 NOV 2025 10:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -618,6 +618,8 @@ Package pdftex.def Info: figures/frontmatter/unipdbg.pdf  used on input line 46.
 {C:/Users/banom/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}{C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ec-tlf.enc} <./figures/frontmatter/unipdbg.pdf> <./figures/frontmatter/0_logo_dei.pdf> <./figures/frontmatter/0_logo_unipd.pdf>]) [2
 
 
+] (chapter/00_abstract.tex) [1] [2
+
 ] (main_report.aux)
  ***********
 LaTeX2e <2025-11-01>
@@ -625,17 +627,17 @@ L3 programming layer <2020/03/25>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 10742 strings out of 467871
- 173945 string characters out of 5418375
- 564748 words of memory out of 5000000
- 39436 multiletter control sequences out of 15000+600000
+ 10750 strings out of 467871
+ 174331 string characters out of 5418375
+ 564747 words of memory out of 5000000
+ 39441 multiletter control sequences out of 15000+600000
  655036 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  74i,10n,79p,586b,634s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplb.pfb><C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplr.pfb>
-Output written on main_report.pdf (2 pages, 577467 bytes).
+Output written on main_report.pdf (4 pages, 578980 bytes).
 PDF statistics:
- 46 PDF objects out of 1000 (max. 8388607)
+ 52 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

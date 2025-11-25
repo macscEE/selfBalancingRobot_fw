@@ -44,7 +44,7 @@ int16_t ax, ay, az, gx, gy, gz;
 double pitchAcc, pitchGyro;
 
 // Complementary filter parameters
-double alpha = 0.98; // Complementary filter coefficient -> higher value gives more weight to gyroscope
+double alpha = 0.50; // Complementary filter coefficient -> higher value gives more weight to gyroscope
 double dt = 0.01;   // Time interval in seconds
 double angle = 0;   // Filtered angle
 
@@ -113,11 +113,10 @@ void loop() {
   angleEstimation(); // Stima l'angolo usando il filtro complementare
 
   PIDresponse(); // Calcola la risposta del PID 
-
+  delay(10); 
   // Serial.println("Output PID: " + String(Output) + "\t");
-  Serial.println("Input (Angolo Y): " + String(angle) + " " + String(pitchAcc) + " " + String(pitchGyro) + " "+ String(Output));//+ "\t");//
-
   motorControl(); // Controlla i motori in base all'output del PID
+  Serial.println("Input (Angolo Y): " + String(angle) + " " + String(pitchAcc) + " " + String(pitchGyro) + " "+ String(Output));     //+ "\t");//
 }
 
 // Function to estimate angle using complementary filter

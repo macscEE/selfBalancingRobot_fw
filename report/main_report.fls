@@ -235,6 +235,9 @@ INPUT .\figures\frontmatter\unipdbg.pdf
 INPUT C:\Users\banom\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
 INPUT C:\Users\banom\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\newtx\ntx-ec-tlf-pc.enc
 INPUT C:\Users\banom\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\newtx\ntx-ec-tlf.enc
+INPUT .\chapter\00_abstract.tex
+INPUT .\chapter\00_abstract.tex
+INPUT chapter\00_abstract.tex
 INPUT main_report.aux
 INPUT C:\Users\banom\AppData\Local\Programs\MiKTeX\fonts\type1\public\newpx\zplb.pfb
 INPUT C:\Users\banom\AppData\Local\Programs\MiKTeX\fonts\type1\public\newpx\zplb.pfb
