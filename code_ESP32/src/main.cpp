@@ -18,6 +18,7 @@
  
 // Target angle in degrees
 #define reference 0 
+#define CRASH_TRESHOLD 60
 
 #define CH_M_R_forward 0
 #define CH_M_R_backward 1
@@ -52,10 +53,10 @@ volatile int wptr_old = 0;
  double Setpoint, Input, Output;
 
 // PID tuning parameters
-//double Kp=300, Ki=0.34, Kd=0.0020;
+
 uint16_t sampleTime = 4; //sampletime in ms 
-double Kp=250, Ki=0.3, Kd=0.0040;
-//double Kp = 140;double Ki = 10;double Kd = 3; <== VALORI A CASO PER TEST
+//double Kp=5, Ki=0.1, Kd=0.05;
+double Kp=0.8, Ki=0.3, Kd=0.05;
 // Create an MPU6050 object
 MPU6050 mpu;
 
@@ -63,14 +64,20 @@ MPU6050 mpu;
 PID controller(&Input, &Output, &Setpoint, Kp, Ki, Kd, DIRECT);
 
 // Variables to hold raw sensor data
-int16_t ax, ay, az, gx, gy, gz;
+int16_t ax=0, ay=0, az=0, gx=0, gy=0, gz=0;
 
 // Variables for angle calculations
-double pitchAcc, pitchGyro;
+double pitchAcc, pitchGyro, rateGyro;
+
+// Accelerometer Filter
+double ax_f = 0, ay_f = 0, az_f = 0;
+double accel_alpha = 0.7;
+double imuFilter_dt=0, imuFilter_now=0, imuFilter_lastCall=0; 
+double gx_f = 0;
+double gyro_alpha = 0.6;
 
 // Complementary filter parameters
-double alpha = 0.50; // Complementary filter coefficient -> higher value gives more weight to gyroscope
-double dt = 0.008;   // Time interval in seconds
+double imuFilter_alpha = 0.6; // Complementary filter coefficient -> higher value gives more weight to gyroscope
 double angle = 0;   // Filtered angle
 
 // PWM definition at 12 bit
@@ -83,10 +90,11 @@ const int res = 8;     // Risoluzione a 12 bit (0–4095)
 hw_timer_t *Timer0_Cfg = NULL;
 portMUX_TYPE timerMux = portMUX_INITIALIZER_UNLOCKED;
 volatile bool tick = false;
+uint16_t time_count = 0;
 
 RobotState currentState = STATE_INIT;
 
-double angleEstimation();
+void angleEstimation();
 void motorControl(int16_t pwm);
 void PIDresponse(double angle_deg);
 
@@ -157,43 +165,44 @@ void loop() {
     portENTER_CRITICAL(&timerMux);
     tick = false;
     portEXIT_CRITICAL(&timerMux);
-  
-    switch(currentState){
-      case STATE_MEASURE_ANGLE:{
-        mpu.getMotion6(&ax, &ay, &az, &gx, &gy, &gz); // Legge i dati grezzi da MPU6050
-        angle = angleEstimation();
-        if(pitchAcc>60 || pitchAcc<-60){
-          currentState = STATE_CRASHED;
-        }else{
-          currentState = STATE_COMPUTE_PID;
+
+    //if(time_count == 10){
+      time_count = 0;
+      switch(currentState){
+        case STATE_MEASURE_ANGLE:{
+          mpu.getMotion6(&ax, &ay, &az, &gx, &gy, &gz); // Legge i dati grezzi da MPU6050
+          angleEstimation();
+          if(pitchAcc>CRASH_TRESHOLD || pitchAcc<-CRASH_TRESHOLD){
+            currentState = STATE_CRASHED;
+          }else{
+            currentState = STATE_COMPUTE_PID;
+          }
+          digitalWrite(DEBUG_PIN_1, 1);
+          break;
         }
-        digitalWrite(DEBUG_PIN_1, 1);
-        break;
+        case STATE_COMPUTE_PID:{
+          PIDresponse(angle);
+          currentState = STATE_DRIVE_MOTORS;
+          break;
+        }
+        case STATE_DRIVE_MOTORS:{
+          motorControl(Output);
+          digitalWrite(DEBUG_PIN_1, 0);
+          buf[wptr] = {pitchAcc, pitchGyro, angle, Output}; // buffer for serial print
+          wptr = (wptr + 1) % 512;
+          currentState = STATE_MEASURE_ANGLE;
+          break;
+        }
+        case STATE_CRASHED:{
+          motorControl(0);
+          PIDresponse(0);
+          buf[wptr] = {angle, Output}; // buffer for serial print
+          wptr = (wptr + 1) % 512;
+          //Serial.println("\nCRASHED!\n");
+          currentState = STATE_MEASURE_ANGLE;
+          break;
+        }
       }
-      case STATE_COMPUTE_PID:{
-        PIDresponse(angle);
-        currentState = STATE_DRIVE_MOTORS;
-        break;
-      }
-      case STATE_DRIVE_MOTORS:{
-        motorControl(Output);
-        digitalWrite(DEBUG_PIN_1, 0);
-        buf[wptr] = {pitchAcc, pitchGyro, angle, Output}; // buffer for serial print
-        wptr = (wptr + 1) % 512;
-        currentState = STATE_MEASURE_ANGLE;
-        break;
-      }
-      case STATE_CRASHED:{
-        motorControl(0);
-        PIDresponse(0);
-        buf[wptr] = {angle, Output}; // buffer for serial print
-        wptr = (wptr + 1) % 512;
-        //Serial.println("\nCRASHED!\n");
-        currentState = STATE_MEASURE_ANGLE;
-        break;
-      }
-      
-      
     }
     //Serial.println("Angle: " + String(angle) + " Pitch Acc " + String(pitchAcc) + " Pitch Gyro " + String(pitchGyro) + " PID Output "+ String(Output)+",");
     //Serial.println(String(angle) +","+ String(pitchAcc) +","+ String(pitchGyro) +","+ String(Output)+" ");
@@ -209,28 +218,38 @@ void loop() {
       Serial.print("\n");
       wptr_old = wptr;
     }
+
+    //time_count++;
   }
-}
-
-
-
+//}
 
 // Function to estimate angle using complementary filter
-double angleEstimation(){
-  double angle_deg = 0;
+void angleEstimation(){
 
-  ax = ax * 0.001196289; // (9.8/4096) for 8g acceleration range
-  ay = ay * 0.001196289;
-  az = az * 0.001196289;
+  ax = ax * 0.002394202; // (9.8/4096) for 8g acceleration range
+  ay = ay * 0.002394202;
+  az = az * 0.002394202;
+
+  ax_f = ax_f + accel_alpha * (ax - ax_f);
+  ay_f = ay_f + accel_alpha * (ay - ay_f);
+  az_f = az_f + accel_alpha * (az - az_f);
 
   // Estimation pitch angle (y-axis) accelerometer
-  pitchAcc = atan2(ay, az)*(360/PI); // in degrees
+  pitchAcc = atan2(ay_f, az_f)*(360/PI); // in degrees
 
   // Estimation pitch angle (y-axis) gyroscope
-  pitchGyro = gx * 0.007629395; // [deg/s] (res of the gyroscope for ±250°/s range)
+  //gx_f = gx_f + gyro_alpha * (gx - gx_f);
+  rateGyro = gx * (1.0/131); // [deg/s] (resolution of the gyroscope for ±250 deg/s range)
+
+  // This block finds the elapsed time between the current and the previous function call to determine the integration interval 
+  imuFilter_now = micros();
+  imuFilter_dt = (imuFilter_now - imuFilter_lastCall) / 1e6;
+  imuFilter_lastCall = imuFilter_now;
+
+  pitchGyro +=  rateGyro * imuFilter_dt; // [deg/s] integrated rate over time
   
   // Complementary filter to combine accelerometer and gyroscope data
-  return angle_deg = alpha * (angle + pitchGyro * dt) + (1 - alpha) * pitchAcc;
+  angle = imuFilter_alpha * (angle + pitchGyro) + (1 - imuFilter_alpha) * pitchAcc;  //dt =0.03 max limit for oscillations
   //angle = angle * (PI/180);
   //angle = pitchGyro * dt;
 }
@@ -238,7 +257,7 @@ double angleEstimation(){
 // PID response function
 void PIDresponse(double angle_deg){
 // Input of PID will be the y-axis angle
-  Input = angle_deg * PI/180; // in radians
+  Input = angle_deg; //* PI/180; // in radians
   controller.Compute(); // Calcola il nuovo output del PID
   controller.SetOutputLimits(-255, 255);//(-4095, 4095); // Limita l'output tra -4095 e 4095 (12 bit)
   controller.SetSampleTime(sampleTime);
