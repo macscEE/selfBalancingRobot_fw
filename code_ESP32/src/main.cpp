@@ -8,19 +8,73 @@
 #define SDA_PIN 21
 #define SCL_PIN 22
 
+#define DEBUG_PIN_1 2
+#define DEBUG_PIN_2 0
+
 #define M_R_forward 18
 #define M_R_backward 17
 #define M_L_forward 4
 #define M_L_backward 16
  
 // Target angle in degrees
-#define reference 0 
+#define PID_REFERENCE 0
+#define CRASH_TRESHOLD 60
 
 #define CH_M_R_forward 0
 #define CH_M_R_backward 1
 #define CH_M_L_forward 2
 #define CH_M_L_backward 3
 
+
+#define ACC_FILTER_ALPHA 0.2 // LPF coefficient for ACCELEROMETER reading
+#define FUSION_FILTER_ALPHA 0.98
+
+
+// STATE MACHINE STATES
+typedef enum{
+  STATE_INIT,
+  STATE_MEASURE_ANGLE,
+  STATE_COMPUTE_PID,
+  STATE_DRIVE_MOTORS,
+  STATE_RESTART,
+  STATE_CRASHED
+}RobotState;
+
+struct AccFilter{
+  double  ax_f;  // ax filtered value
+  double  ay_f;  // ay filtered value
+  double  az_f;  // az filtered value
+  double  alpha;  // filter coefficient
+};
+
+struct GyroFilter{
+  double  ax_f;  // ax filtered value
+  double  ay_f;  // ay filtered value
+  double  az_f;  // az filtered value
+  double  alpha;  // filter coefficient
+};
+
+AccFilter accFilter = {0,0,0,ACC_FILTER_ALPHA};
+
+struct EstimatedAngle{
+  double  acc;     // [deg] accelerometer estimated angle
+  double  gyro;    // [deg] gyroscope estimated angle
+  double  fusion;  // [deg] estimated angle using sensor fusion
+  double  gyroRate; // [deg/s] gyro rate of change of the angle 
+};
+EstimatedAngle angle = {0.0,0.0,0.0};
+
+// SERIAL PRINTING
+struct Sample {
+    double angleAcc;
+    double angleGyro;
+    double error;
+    double control;
+    double rateGyro;
+};
+Sample buf[512];
+volatile int wptr = 0;
+volatile int wptr_old = 0;
 
 /* Define PID parameters
  Input => Measured value
@@ -29,24 +83,45 @@
  double Setpoint, Input, Output;
 
 // PID tuning parameters
-double Kp=400, Ki=30, Kd=0.0022;
-//double Kp = 140;double Ki = 10;double Kd = 3; <== VALORI A CASO PER TEST
+
+uint16_t sampleTime = 4; //sampletime in ms 
+//double Kp=5, Ki=0.1, Kd=0.05;
+//double Kp=10, Ki=0.02, Kd=0.3; //08/12/2025 14:06
+double Kp=10, Ki=0.02, Kd=0.4; //08/12/2025 15:05
 // Create an MPU6050 object
 MPU6050 mpu;
 
 // Create a PID controller object
 PID controller(&Input, &Output, &Setpoint, Kp, Ki, Kd, DIRECT);
 
-// Variables to hold raw sensor data
-int16_t ax, ay, az, gx, gy, gz;
-
 // Variables for angle calculations
-double pitchAcc, pitchGyro;
+double pitchAcc, pitchGyro, rateGyro;
+
+// Complementary filter
+unsigned long imuFilter_lastCall=0; 
+
+/*
+double gyroBias = 0.0;
+const int CAL_SAMPLES = 500;
+double Kc = 0.02;           // accel correction gain (per sample)
+double accelTrustThreshold = 0.15;
+
+void calibrateGyroBias() {
+  long sum = 0;
+  for (int i = 0; i < CAL_SAMPLES; ++i) {
+    mpu.getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
+    sum += (long)gx;           // use the same axis as your pitch gyro
+    delay(2);                  // small delay so sampling is not back-to-back
+  }
+  gyroBias = (double)sum / (double)CAL_SAMPLES;
+  // convert to deg/s bias
+  gyroBias = gyroBias * 0.007629395;
+  Serial.print("Gyro bias (deg/s): "); Serial.println(gyroBias);
+}
+*/
 
 // Complementary filter parameters
-double alpha = 0.30; // Complementary filter coefficient -> higher value gives more weight to gyroscope
-double dt = 0.01;   // Time interval in seconds
-double angle = 0;   // Filtered angle
+double imuFilter_alpha = 0.93; // Complementary filter coefficient -> higher value gives more weight to gyroscope
 
 // PWM definition at 12 bit
 // Impostazioni PWM
@@ -55,10 +130,22 @@ const int channels[] = {CH_M_R_forward, CH_M_R_backward, CH_M_L_forward, CH_M_L_
 const int freq = 100;//19531;  // Frequenza massima per 12 bit (80 MHz / 4096)
 const int res = 8;     // Risoluzione a 12 bit (0–4095)
 
-void angleEstimation();
-void motorControl(int16_t pwm);
-void PIDresponse();
+hw_timer_t *Timer0_Cfg = NULL;
+portMUX_TYPE timerMux = portMUX_INITIALIZER_UNLOCKED;
+volatile bool tick = false;
+uint16_t time_count = 0;
 
+RobotState currentState = STATE_INIT;
+
+EstimatedAngle angleEstimation(EstimatedAngle previousAngle);
+void motorControl(int16_t pwm);
+void PIDresponse(double angle_deg);
+
+void IRAM_ATTR Timer0_ISR(){
+  portENTER_CRITICAL_ISR(&timerMux);
+  tick = true;
+  portEXIT_CRITICAL_ISR(&timerMux);
+}
 
 
 void setup() {
@@ -69,77 +156,168 @@ void setup() {
   pinMode(M_R_backward, OUTPUT);
   pinMode(M_L_forward, OUTPUT);
   pinMode(M_L_backward, OUTPUT);
+  pinMode(DEBUG_PIN_1, OUTPUT);
+  pinMode(DEBUG_PIN_2, OUTPUT);
 
   Serial.begin(115200);
   Wire.begin();
 
-  Serial.println("Inizializzazione MPU6050...");
+  Serial.println("MPU6050 Initialization...");
   mpu.initialize();
 
   if (!mpu.testConnection()) {
-    Serial.println("Connessione al MPU6050 fallita!");
+    Serial.println("Unable to connect to MPU6050!");
     while (1);
   }
-  Serial.println("MPU6050 connesso correttamente!");
-  // Sensor range adjustment (cover at least 180°)
+  Serial.println("MPU6050 connected succesfully!");
+
   mpu.setFullScaleGyroRange(MPU6050_GYRO_FS_250); // set gyro range to maximum 250 degrees (best resolution)
-  mpu.setFullScaleAccelRange(MPU6050_ACCEL_FS_8); // set accelerometer range to maximum 8g (a bit much, try reducing if problems arise)
-  // Calibra i sensori
-  mpu.CalibrateAccel(6);  // 6 = numero di campioni
+  mpu.setFullScaleAccelRange(MPU6050_ACCEL_FS_4); // set accelerometer range to maximum 4g
+
+  mpu.CalibrateAccel(6);  // 6 samples for calibration
   mpu.CalibrateGyro(6);
 
-  Serial.println("Calibrazione completata!");
+  Serial.println("Initial Calibration Completed!");
   mpu.PrintActiveOffsets();  // Mostra gli offset calcolati
 
+
   // Imposta il setpoint iniziale
-  Setpoint = reference; // Target angle in degrees
+  Setpoint = PID_REFERENCE; // Target angle in degrees
   controller.SetMode(AUTOMATIC); // Attiva il PID controller
 
-  Serial.println("Setup completato!");
+  //calibrateGyroBias();
+  Serial.println("Regulator Setup Completed!");
 
   // Configura i canali PWM
   for (int i = 0; i < 4; i++) {
     ledcSetup(channels[i], freq, res);
     ledcAttachPin(pins[i], channels[i]);
   }
+
+  Timer0_Cfg = timerBegin(0, 80, true); // 80e6/80 = 1e6 => 1 tick = 1 us
+  timerAttachInterrupt(Timer0_Cfg, &Timer0_ISR, true);
+  timerAlarmWrite(Timer0_Cfg, 1000, true); //1000*1us = 1ms
+  timerAlarmEnable(Timer0_Cfg);
+
   delay(1000);
+
+  currentState = STATE_MEASURE_ANGLE;
+
 }
 
 void loop() {
-  mpu.getMotion6(&ax, &ay, &az, &gx, &gy, &gz); // Legge i dati grezzi da MPU6050
-  ax = ax * 0.002392578; // (9.8/4096) for 8g acceleration range
-  ay = ay * 0.002392578; 
-  az = az * 0.002392578;
-  angleEstimation(); // Stima l'angolo usando il filtro complementare
+  if(tick == true){
+    portENTER_CRITICAL(&timerMux);
+    tick = false;
+    portEXIT_CRITICAL(&timerMux);
 
-  PIDresponse(); // Calcola la risposta del PID 
-  delay(1); 
-  // Serial.println("Output PID: " + String(Output) + "\t");
-  motorControl(Output); // Controlla i motori in base all'output del PID
-  Serial.println("Input (Angolo Y): " + String(angle) + " " + String(pitchAcc) + " " + String(pitchGyro) + " "+ String(Output));     //+ "\t");//
-}
+    //if(time_count == 10){
+      time_count = 0;
+      switch(currentState){
+        case STATE_MEASURE_ANGLE:{
+          
+          angle=angleEstimation(angle);
+          if(angle.acc>CRASH_TRESHOLD || angle.acc<-CRASH_TRESHOLD){
+            currentState = STATE_CRASHED;
+          }else{
+            currentState = STATE_COMPUTE_PID;
+          }
+          digitalWrite(DEBUG_PIN_1, 1);
+          break;
+        }
+        case STATE_COMPUTE_PID:{
+          PIDresponse(angle.fusion);
+          currentState = STATE_DRIVE_MOTORS;
+          break;
+        }
+        case STATE_DRIVE_MOTORS:{
+          motorControl(Output);
+          digitalWrite(DEBUG_PIN_1, 0);
+          buf[wptr] = {angle.acc, angle.gyro, angle.fusion, Output, angle.gyroRate}; // buffer for serial print
+          wptr = (wptr + 1) % 512;
+          currentState = STATE_MEASURE_ANGLE;
+          break;
+        }
+        case STATE_CRASHED:{
+          motorControl(0);
+          PIDresponse(0);
+          buf[wptr] = {angle.acc, angle.gyro, angle.fusion, Output, angle.gyroRate}; // buffer for serial print
+          wptr = (wptr + 1) % 512;
+          //Serial.println("\nCRASHED!\n");
+          currentState = STATE_MEASURE_ANGLE;
+          break;
+        }
+      }
+    }
+    //Serial.println("Angle: " + String(angle) + " Pitch Acc " + String(pitchAcc) + " Pitch Gyro " + String(pitchGyro) + " PID Output "+ String(Output)+",");
+    //Serial.println(String(angle) +","+ String(pitchAcc) +","+ String(pitchGyro) +","+ String(Output)+" ");
+
+    if((wptr != wptr_old) && (wptr%10==0)){
+      Serial.print((int16_t)(buf[wptr].angleAcc));
+      Serial.print(",");
+      Serial.print((int16_t)(buf[wptr].angleGyro));
+      Serial.print(",");
+      Serial.print((int16_t)(buf[wptr].error));
+      Serial.print(",");
+      Serial.print((int16_t)(buf[wptr].control));
+      Serial.print(",");
+      Serial.print((int16_t)(buf[wptr].rateGyro));
+      Serial.print("\n");
+      wptr_old = wptr;
+    }
+
+    //time_count++;
+  }
+//}
 
 // Function to estimate angle using complementary filter
-void angleEstimation(){
-  
-  // Estimation pitch angle (y-axis) accelerometer
-  pitchAcc = atan2(ay, az)*(360/PI); // in degrees
+EstimatedAngle angleEstimation(EstimatedAngle previousAngle){
+  int16_t ax=0, ay=0, az=0, gx=0, gy=0, gz=0;
+  double ax_d=0, ay_d=0, az_d=0;
+  double gyroRate = 0;
 
-  // Estimation pitch angle (y-axis) gyroscope
-  pitchGyro = gx * 0.007629395; // [deg/s] (res of the gyroscope for ±250°/s range)
+  EstimatedAngle measAngle;
+  mpu.getMotion6(&ax, &ay, &az, &gx, &gy, &gz); // Legge i dati grezzi da MPU6050
+
+  ax_d = (double)ax * 0.002394202; // (9.8/4096) for 8g acceleration range 
+  ay_d = (double)ay * 0.002394202;
+  az_d = (double)az * 0.002394202;
   
+  accFilter.ax_f += accFilter.alpha * (ax_d - accFilter.ax_f);
+  accFilter.ay_f += accFilter.alpha * (ay_d - accFilter.ay_f);
+  accFilter.az_f += accFilter.alpha * (az_d - accFilter.az_f);
+
+  // Estimation pitch angle (y-axis) accelerometer
+  measAngle.acc = atan2(ay_d, az_d)*(360/PI); // [°] angle estimated from accelerometer (FILTERED)
+  
+  // Estimation pitch angle (y-axis) gyroscope
+  gyroRate = (double)gx * (1.0/131); // [deg/s]
+
+  // This block finds the elapsed time between the current and the previous function call to determine the integration interval 
+  unsigned long imuFilter_now = micros();
+  double imuFilter_dt=0;
+  if(imuFilter_lastCall == 0){
+    imuFilter_dt = 1e-3;
+  }else{
+    imuFilter_dt = (double)(imuFilter_now - imuFilter_lastCall) / 1e6;
+  }
+  imuFilter_lastCall = imuFilter_now;
+
+  measAngle.gyro = previousAngle.gyro + gyroRate * imuFilter_dt; // [deg] angle estimated from gyroscope rate integrated over time
+
   // Complementary filter to combine accelerometer and gyroscope data
-  angle = alpha * (angle + pitchGyro * dt) + (1 - alpha) * pitchAcc;
-  //angle = angle * (PI/180);
-  //angle = pitchGyro * dt;
+  measAngle.fusion = FUSION_FILTER_ALPHA * (previousAngle.fusion + gyroRate * imuFilter_dt) + (1 - FUSION_FILTER_ALPHA) * measAngle.acc;  //dt =0.03 max limit for oscillations 
+  measAngle.gyroRate = gyroRate;
+  return measAngle;
 }
 
 // PID response function
-void PIDresponse(){
+void PIDresponse(double angle_deg){
 // Input of PID will be the y-axis angle
-  Input = angle * PI/180; // in radians
+  Input = angle_deg; //* PI/180; // in radians
   controller.Compute(); // Calcola il nuovo output del PID
   controller.SetOutputLimits(-255, 255);//(-4095, 4095); // Limita l'output tra -4095 e 4095 (12 bit)
+  controller.SetSampleTime(sampleTime);
 }
 
  // Control motors based on PID output
