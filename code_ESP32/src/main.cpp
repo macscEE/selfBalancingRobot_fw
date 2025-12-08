@@ -57,9 +57,10 @@ struct GyroFilter{
 AccFilter accFilter = {0,0,0,ACC_FILTER_ALPHA};
 
 struct EstimatedAngle{
-  double  acc;     // accelerometer estimated angle
-  double  gyro;    // gyroscope estimated angle
-  double  fusion;  // estimated angle using sensor fusion
+  double  acc;     // [deg] accelerometer estimated angle
+  double  gyro;    // [deg] gyroscope estimated angle
+  double  fusion;  // [deg] estimated angle using sensor fusion
+  double  gyroRate; // [deg/s] gyro rate of change of the angle 
 };
 EstimatedAngle angle = {0.0,0.0,0.0};
 
@@ -69,6 +70,7 @@ struct Sample {
     double angleGyro;
     double error;
     double control;
+    double rateGyro;
 };
 Sample buf[512];
 volatile int wptr = 0;
@@ -84,8 +86,8 @@ volatile int wptr_old = 0;
 
 uint16_t sampleTime = 4; //sampletime in ms 
 //double Kp=5, Ki=0.1, Kd=0.05;
-//double Kp=6, Ki=0.02, Kd=0.3; //08/12/2025 14:06
-double Kp=6, Ki=0.1, Kd=0.35; //08/12/2025 14:08
+//double Kp=10, Ki=0.02, Kd=0.3; //08/12/2025 14:06
+double Kp=10, Ki=0.02, Kd=0.4; //08/12/2025 15:05
 // Create an MPU6050 object
 MPU6050 mpu;
 
@@ -231,7 +233,7 @@ void loop() {
         case STATE_DRIVE_MOTORS:{
           motorControl(Output);
           digitalWrite(DEBUG_PIN_1, 0);
-          buf[wptr] = {angle.acc, angle.gyro, angle.fusion, Output}; // buffer for serial print
+          buf[wptr] = {angle.acc, angle.gyro, angle.fusion, Output, angle.gyroRate}; // buffer for serial print
           wptr = (wptr + 1) % 512;
           currentState = STATE_MEASURE_ANGLE;
           break;
@@ -239,7 +241,7 @@ void loop() {
         case STATE_CRASHED:{
           motorControl(0);
           PIDresponse(0);
-          buf[wptr] = {angle.acc, angle.gyro, angle.fusion, Output}; // buffer for serial print
+          buf[wptr] = {angle.acc, angle.gyro, angle.fusion, Output, angle.gyroRate}; // buffer for serial print
           wptr = (wptr + 1) % 512;
           //Serial.println("\nCRASHED!\n");
           currentState = STATE_MEASURE_ANGLE;
@@ -258,6 +260,8 @@ void loop() {
       Serial.print((int16_t)(buf[wptr].error));
       Serial.print(",");
       Serial.print((int16_t)(buf[wptr].control));
+      Serial.print(",");
+      Serial.print((int16_t)(buf[wptr].rateGyro));
       Serial.print("\n");
       wptr_old = wptr;
     }
@@ -303,6 +307,7 @@ EstimatedAngle angleEstimation(EstimatedAngle previousAngle){
 
   // Complementary filter to combine accelerometer and gyroscope data
   measAngle.fusion = FUSION_FILTER_ALPHA * (previousAngle.fusion + gyroRate * imuFilter_dt) + (1 - FUSION_FILTER_ALPHA) * measAngle.acc;  //dt =0.03 max limit for oscillations 
+  measAngle.gyroRate = gyroRate;
   return measAngle;
 }
 
