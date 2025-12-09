@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.24)  9 DEC 2025 11:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.24)  9 DEC 2025 16:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -620,17 +620,26 @@ Package pdftex.def Info: figures/frontmatter/unipdbg.pdf  used on input line 46.
 
 ] (chapter/00_abstract.tex) [1] [2
 
+]
+LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
+(Font)              scaled to size 24.88pt on input line 31.
+LaTeX Font Info:    Font shape `T1/zpltlf/b/n' will be
+(Font)              scaled to size 24.88pt on input line 31.
+ (main_report.toc)
+\tf@toc=\write3
+\openout3 = `main_report.toc'.
+
+ [3
+
+] [4
+
 ] (chapter/01_introduction.tex
 Chapter 1.
 LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
-(Font)              scaled to size 24.88pt on input line 1.
-LaTeX Font Info:    Font shape `T1/zpltlf/b/n' will be
-(Font)              scaled to size 24.88pt on input line 1.
-LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
 (Font)              scaled to size 17.28pt on input line 25.
 LaTeX Font Info:    Font shape `T1/zpltlf/b/n' will be
 (Font)              scaled to size 17.28pt on input line 25.
-<figures/01_introduction/esp32.jpg, id=39, 602.25pt x 602.25pt>
+<figures/01_introduction/esp32.jpg, id=45, 602.25pt x 602.25pt>
 File: figures/01_introduction/esp32.jpg Graphic file (type jpg)
 <use figures/01_introduction/esp32.jpg>
 Package pdftex.def Info: figures/01_introduction/esp32.jpg  used on input line 40.
@@ -644,7 +653,7 @@ File: ts1zpltlf.fd 2021/11/24 v1.0 fd file for TS1/zpltlf
 )
 LaTeX Font Info:    Font shape `TS1/zpltlf/m/n' will be
 (Font)              scaled to size 12.0pt on input line 57.
-<figures/01_introduction/mpu6050.jpg, id=43, 833.1125pt x 501.875pt>
+<figures/01_introduction/mpu6050.jpg, id=50, 833.1125pt x 501.875pt>
 File: figures/01_introduction/mpu6050.jpg Graphic file (type jpg)
 <use figures/01_introduction/mpu6050.jpg>
 Package pdftex.def Info: figures/01_introduction/mpu6050.jpg  used on input line 67.
@@ -654,36 +663,62 @@ LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
 LaTeX Font Info:    Font shape `T1/zpltlf/b/n' will be
 (Font)              scaled to size 14.4pt on input line 76.
  [2{C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newpx/zpl_TOsF.enc}{C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newpx/px-lms.enc}{C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc} <./figures/01_introduction/esp32.jpg> <./figures/01_introduction/mpu6050.jpg>]
-<figures/01_introduction/dcMotor.jpg, id=51, 1565.85pt x 1043.9pt>
+<figures/01_introduction/dcMotor.jpg, id=58, 1565.85pt x 1043.9pt>
 File: figures/01_introduction/dcMotor.jpg Graphic file (type jpg)
 <use figures/01_introduction/dcMotor.jpg>
 Package pdftex.def Info: figures/01_introduction/dcMotor.jpg  used on input line 83.
 (pdftex.def)             Requested size: 182.09486pt x 121.39194pt.
-<figures/01_introduction/drv8871.jpg, id=52, 897.3525pt x 712.6625pt>
+<figures/01_introduction/drv8871.jpg, id=59, 897.3525pt x 712.6625pt>
 File: figures/01_introduction/drv8871.jpg Graphic file (type jpg)
 <use figures/01_introduction/drv8871.jpg>
 Package pdftex.def Info: figures/01_introduction/drv8871.jpg  used on input line 96.
 (pdftex.def)             Requested size: 91.04742pt x 72.30348pt.
 ) [3 <./figures/01_introduction/dcMotor.jpg> <./figures/01_introduction/drv8871.jpg>] [4
 
+] (chapter/02_modelling.tex
+Chapter 2.
+LaTeX Font Info:    Font shape `T1/zpltlf/m/it' will be
+(Font)              scaled to size 12.0pt on input line 8.
+<figures/01_introduction/inverse_pendulum.pdf, id=66, 122.50267pt x 155.49895pt>
+File: figures/01_introduction/inverse_pendulum.pdf Graphic file (type pdf)
+<use figures/01_introduction/inverse_pendulum.pdf>
+Package pdftex.def Info: figures/01_introduction/inverse_pendulum.pdf  used on input line 12.
+(pdftex.def)             Requested size: 113.81102pt x 144.46777pt.
+[5
+
+ <./figures/01_introduction/inverse_pendulum.pdf>]
+
+LaTeX Warning: Reference `....' on page 6 undefined on input line 79.
+
+<figures/02_modelling/blockDiagram.pdf, id=88, 211.5895pt x 40.81247pt>
+File: figures/02_modelling/blockDiagram.pdf Graphic file (type pdf)
+<use figures/02_modelling/blockDiagram.pdf>
+Package pdftex.def Info: figures/02_modelling/blockDiagram.pdf  used on input line 84.
+(pdftex.def)             Requested size: 318.66948pt x 61.47385pt.
+) [6] [7 <./figures/02_modelling/blockDiagram.pdf>] [8
+
 ] (main_report.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2020/03/25>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
  ) 
 Here is how much of TeX's memory you used:
- 10852 strings out of 467871
- 177141 string characters out of 5418375
- 569888 words of memory out of 5000000
- 39530 multiletter control sequences out of 15000+600000
- 673783 words of font info for 81 fonts, out of 8000000 for 9000
+ 10901 strings out of 467871
+ 178861 string characters out of 5418375
+ 570056 words of memory out of 5000000
+ 39564 multiletter control sequences out of 15000+600000
+ 679218 words of font info for 90 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  74i,10n,79p,586b,634s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI.pfb><C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxsys.pfb><C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplb.pfb><C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplr.pfb>
-Output written on main_report.pdf (8 pages, 968777 bytes).
+<C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI.pfb><C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI_gnu.pfb><C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxmiaX.pfb><C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxsys.pfb><C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txexs.pfb><C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplb.pfb><C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplr.pfb><C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplri.pfb>
+Output written on main_report.pdf (14 pages, 1085432 bytes).
 PDF statistics:
- 89 PDF objects out of 1000 (max. 8388607)
+ 181 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

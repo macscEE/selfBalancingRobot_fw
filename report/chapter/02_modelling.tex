@@ -1,0 +1,87 @@
+\begin{chapter}{Modelling and simulation}
+
+Now that we described the hardware components of our self-balancing robot in Chapter \ref{ch:01_introduction}, we can proceed to
+model the system and simulate it's behavior in MATLAB/Simulink environment.
+
+\section{Physical model}
+
+The best way to model a self-balancing robot is to treat it as a \textit{inverse pendulum}, like the one reported in Figure \ref{fig:02_inversePendulum}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.25\linewidth]{figures/01_introduction/inverse_pendulum.pdf}
+    \caption{Inverse pendulum schematic representation}
+\label{fig:02_inversePendulum}
+\end{figure}
+
+Where:
+\begin{itemize}
+    \item $m$ is the mass of the pendulum
+    \item $\ell$ is the length of the pendulum
+    \item $\theta$ is the angle of the pendulum with respect to the vertical axis
+    \item $\tau$ is the torque applied to the base of the pendulum 
+\end{itemize}
+
+The equations that govern the motion of the inverse pendulum can be derived using Newton's laws.  
+\begin{equation}
+    m  \ell^2  \ddot{\theta}(t) = mg\ell sin(\theta) + \tau(t)
+    \label{eq:02_equationInvPend}
+\end{equation}
+
+\noindent   
+Where $g$ is the acceleration due to gravity and $\ddot{\theta}(t)$ is the angular acceleration of the pendulum.
+To linearize the equation \ref{eq:02_equationInvPend}, we can use the small angle approximation, which states that for small angles (in radians), $sin(\theta) \approx \theta$.
+This leads to the following linearized equation:
+
+\begin{equation}
+    m  \ell^2  \ddot{\theta}(t) = mg\ell \theta + \tau(t)
+\label{eq:02_equationInvPendLinear}
+\end{equation}
+
+\noindent
+From equation \ref{eq:02_equationInvPendLinear}, we can derive the transfer function of the system by taking 
+the Laplace transform, assuming zero initial conditions:
+
+\begin{equation}
+    G_{pendulum}(s) = \frac{\theta(s)}{\tau(s)} = \frac{ \frac{1}{m \ell ^2} }{s^2 - \frac{g}{\ell}}
+\label{eq:02_transferFunctionInvPend}
+\end{equation}
+
+\noindent
+In equation \ref{eq:02_transferFunctionInvPend} we can see that the system has 
+two poles at $s = \pm \sqrt{\frac{g}{\ell}}$, indicating that the system is unstable, as one of the poles is in the right half of the s-plane.
+
+\section{DC motor modelling}
+
+To model the DC motors used in our project, we can use the following equations that describe the electrical and mechanical dynamics of a DC motor:
+
+\begin{equation}
+    v(t) = L \frac{di(t)}{dt} + R i(t) + K_{\phi} \omega(t)
+\label{eq:02_dcMotorElectrical}
+\end{equation}
+
+By applying the Laplace transform to equation \ref{eq:02_dcMotorElectrical}, and
+considering also the gear ratio $K_G = 120$ we obtain:
+
+\begin{equation}
+   G_{motor}(s) = \frac{\tau(s)}{v(s)}  = k_G \cdot \frac{K_\phi}{R + sL}
+\end{equation}
+\label{eq:02_dcMotorTransferFunction}
+\end{chapter}
+
+The obtained transfer function is a first order system.
+
+\section{Complete model}
+
+The complete model is the product of the two transfer functions obtained: we have to consider
+that we do not consider the \textit{back EMF} of the motor in the transfer function: 
+this is a simplification of the model.
+In Figure \ref{....} the complete block diagram is reported, where $G(s) =  G_{pendulum}(s) \cdot G_{motor}(s) = 
+\frac{\theta(s)}{v(s)}$.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{figures/02_modelling/blockDiagram.pdf}
+    \caption{Complete block diagram of the self-balancing robot model}
+\end{figure}
+
