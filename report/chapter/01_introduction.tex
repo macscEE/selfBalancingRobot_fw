@@ -1,0 +1,99 @@
+\begin{chapter}{Introduction}
+\label{ch:01_introduction}
+
+We first start by introducing the concept of a self-balancing robot, which is a type of two-wheels robot that can maintain 
+its balance while standing upright: this is achieved by continuisly measure the pitch angle of the robot and consequently 
+adjust the motor's speed to keep the robot balanced.
+The main components of the self-balancing robot are reported in Table \ref{tab:01_componentsList}.
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{Component} & \textbf{Description} \\
+        \hline
+        ESP32 & Microcontroller \\
+        MPU6050 & Inertial Measurement Unit (IMU) sensor \\
+        DFRobot DC 6V  & DC Motors \\
+        DRV8871 & Motor Driver \\
+        Molicel ... & Batteries for power supplys. \\
+        \hline
+    \end{tabular}
+    \caption{Main components of the self-balancing robot}
+\label{tab:01_componentsList}
+\end{table}
+
+\section{ESP32 Microcontroller}
+The ESP32 (reported in Figure \ref{fig:01_esp32}) is a powerful microcontroller developed by Espressif Systems, widely used in IoT applications due to 
+its built-in Wi-Fi and Bluetooth capabilities. It features a dual-core processor, ample memory, and various peripherals, 
+making it suitable for real-time control tasks required in self-balancing robots.
+
+We chose the ESP32 for our self-balancing robot project because of its processing power but moreover for its higher clock
+speed (240 MHz) compared to other microcontrollers like Arduino Uno (16 MHz) or Arduino Mega (16 MHz). This allows faster control
+loop execution, which is crucial for maintaining balance in real-time.
+
+The microcontroller can be programmed using the Arduino IDE but we chooose for another IDE, called PlatformIO, which offers
+more advanced features and better project management capabilities. This IDE can be integrated into Visual Studion Code and so 
+we can take trace of all the changes with Git version control system.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.3\textwidth]{figures/01_introduction/esp32.jpg}
+    \caption{ESP32 development board}
+\label{fig:01_esp32}
+\end{figure}
+\end{chapter}
+
+\section{MPU6050}
+For the IMU sensor, we selected the MPU6050 (shown in Figure \ref{tab:01_mpu6050Ranges}) which combines a 3-axis gyroscope and a 3-axis accelerometer.
+This sensor provides all the data through the I2C communication protocol. The MPU6050 range of measurement are reported 
+in Table \ref{tab:01_mpu6050Ranges}.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{Sensor} & \textbf{Range of Measurement} \\
+        \hline
+        Accelerometer & ±2g, ±4g, ±8g, ±16g \\
+        Gyroscope & ±250, ±500, ±1000, ±2000 °/s \\
+        \hline
+    \end{tabular}
+    \caption{MPU6050 range of measurement}
+\label{tab:01_mpu6050Ranges}
+\end{table}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.4\textwidth]{figures/01_introduction/mpu6050.jpg}
+    \caption{MPU6050 Inertial Measurement Unit (IMU) sensor}
+\end{figure}
+
+In our application we configure the accelerometer to a range of $\pm 4g$ for reasons that will be explained in Chapter ... %metti reference a capitolo prove
+and the gyroscope to a range of $ 250 \hspace{2pt} ^\circ/s$ since we need high sensitivity and we don't expect higher angular velocities.
+
+\section{Motor Driver and DC Motors}
+
+\subsection{DC motor}
+For the DC motor we selected the DFRobot DC 6V (shown in Figure \ref{fig:01_dcMotor}), a motor that comes with a 120:1 gear ratio, providing high 
+torque at low speeds, which is ideal for balancing applications. The motor is powered by a 6V power supply and
+can draw a stall current of up to 1.2A.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.4\textwidth]{figures/01_introduction/dcMotor.jpg}
+    \caption{DFRobot DC 6V motor with 120:1 gear ratio}
+\label{fig:01_dcMotor}
+\end{figure}
+
+\subsection{DRV8871}
+
+To control the DC motors, we use the DRV8871 motor driver (shown in Figure \ref{fig:01_drv8871}), which is 
+capable of handling motor supply voltages from 6.5V to 45V. It's a double full-bridge driver, allowing 
+for bidirectional control of the motors.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.2\textwidth]{figures/01_introduction/drv8871.jpg}
+    \caption{DRV8871 motor driver}
+\label{fig:01_drv8871}
+\end{figure}
