@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.24)  9 DEC 2025 16:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.24)  10 DEC 2025 17:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -409,91 +409,211 @@ Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
 (babel)             (\language73). Reported on input line 105.
 Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
 (babel)             (\language73). Reported on input line 108.
-)) (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/eso-pic\eso-pic.sty
+)) (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty \lstset,
+\lst@mode=\count314
+ 
+new hook `InitVars',
+
+new hook `EndGroup',
+
+new hook `ExitVars',
+
+new hook `ModeTrue',
+
+new hook `EOL',
+\lst@gtempboxa=\box55
+\lst@token=\toks29
+\lst@length=\count315
+
+new hook `InitVarsBOL',
+\lst@currlwidth=\dimen192
+\lst@column=\count316
+\lst@pos=\count317
+\lst@lostspace=\dimen193
+\lst@width=\dimen194
+basewidth, 
+new hook `FontAdjust',
+fontadjust, 
+new hook `PostOutput',
+
+new hook `OutputBox',
+
+new hook `InitBOL',
+columns, flexiblecolumns,
+\lst@newlines=\count318
+ 
+new hook `OnNewLine',
+emptylines, 
+new hook `OnEmptyLine',
+identifierstyle, 
+new hook `EmptyStyle',
+
+new hook `OutputOther',
+
+new hook `Output',
+tabsize, showtabs, tab, showspaces, keepspaces, 
+new hook `Init',
+formfeed, upquote, SelectCharTable, MoreSelectCharTable, 
+new hook `SetLanguage',
+extendedchars, useoutput, rescanchars, alsoletter, alsodigit, alsoother, 
+new hook `SelectCharTable',
+excludedelims, delim, moredelim, deletedelim, literate, basicstyle, inputencoding, multicols, 
+new hook `EveryLine',
+\lst@lineno=\count319
+print, firstline, lastline, 
+new hook `PreSet',
+nolol, linerange, consecutivenumbers, rangeprefix, rangesuffix, rangebeginprefix, rangebeginsuffix, rangeendprefix, rangeendsuffix, includerangemarker, 
+new hook `DeInit',
+captionpos, abovecaptionskip, belowcaptionskip, label, title, caption, 
+new hook `TextStyle',
+\lstlistingname, \lstlistingnamestyle, numberbychapter, boxpos, float, floatplacement, aboveskip, belowskip, everydisplay, 
+new hook `DisplayStyle',
+
+new hook `PreInit',
+
+new hook `EveryPar',
+showlines,
+\lst@maxwidth=\dimen195
+ 
+new hook `InitVarsEOL',
+gobble, name, \lstlistlistingname, \lstlistoflistings, inputpath, \lstnewenvironment, fancyvrb, (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstpatch.sty
+File: lstpatch.sty 2025/10/06 1.11 (Carsten Heinz)
+) (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
+File: lstmisc.sty 2025/10/06 1.11 (Carsten Heinz)
+ 
+Define lst-aspect `strings': string, morestring, deletestring, stringstyle, showstringspaces, 
+new hook `ExcludeDelims',
+
+Allocs: none
+
+Define lst-aspect `comments': comment, morecomment, deletecomment, commentstyle, 
+new hook `AfterBeginComment',
+
+Allocs: none
+
+Define lst-aspect `escape': texcl, escapebegin, escapeend, escapechar, escapeinside, mathescape, 
+Allocs: none
+
+Define lst-aspect `keywords': sensitive, 
+new hook `TrackKeywords',
+
+new hook `PostTrackKeywords',
+
+new hook `DetectKeywords',
+classoffset, keywords, morekeywords, deletekeywords, keywordstyle, keywordstyle, ndkeywords, morendkeywords, deletendkeywords, ndkeywordstyle, keywordsprefix, otherkeywords, 
+Allocs: none
+
+Define lst-aspect `emph': emph, moreemph, deleteemph, emphstyle, 
+Allocs: none
+
+Define lst-aspect `index': index, moreindex, deleteindex, indexstyle, \lstindexmacro, 
+Allocs: none
+
+Define lst-aspect `style': \lststylefiles, \lstdefinestyle, \lst@definestyle, style, 
+new hook `SetStyle',
+
+Allocs: none
+
+Define lst-aspect `language': \lstlanguagefiles, \lstdefinelanguage, \lst@definelanguage, language, alsolanguage, \lstalias, defaultdialect, 
+Allocs: none
+
+Define lst-aspect `labels': numbers, stepnumber, numberfirstline, numberstyle, numbersep, numberblanklines, firstnumber,
+\c@lstnumber=\count320
+\lst@skipnumbers=\count321
+ 
+Allocs: 2\count, 
+
+Define lst-aspect `lineshape': xleftmargin, xrightmargin, resetmargins, 
+new hook `BoxUnsafe',
+linewidth, lineskip, breaklines, breakindent, breakautoindent, breakatwhitespace, prebreak, postbreak, 
+Allocs: none
+
+Define lst-aspect `frames': framexleftmargin, framexrightmargin, framextopmargin, framexbottommargin, backgroundcolor, fillcolor, rulecolor, rulesepcolor, rulesep, framerule, framesep, frameshape, frameround, frame,
+\lst@framebox=\box56
+ 
+Allocs: 1\box, 
+) 
+Allocs: 8\count, 4\dimen, 2\box, 1\toks, 
+(C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
+File: listings.cfg 2025/10/06 1.11 listings configuration
+))
+Package: listings 2025/10/06 1.11 (Carsten Heinz)
+
+==> First Aid for listings.sty no longer applied!
+    Expected:
+        2024/09/23 1.10c (Carsten Heinz)
+    but found:
+        2025/10/06 1.11 (Carsten Heinz)
+    so I'm assuming it got fixed.
+(C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/eso-pic\eso-pic.sty
 Package: eso-pic 2023/05/03 v3.0c eso-pic (RN)
-\ESO@tempdima=\dimen192
-\ESO@tempdimb=\dimen193
+\ESO@tempdima=\dimen196
+\ESO@tempdimb=\dimen197
 )
 LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
-(Font)              scaled to size 12.0pt on input line 19.
- (main_report.aux)
+(Font)              scaled to size 12.0pt on input line 44.
+ (main_report.aux
+
+LaTeX Warning: Label `lst:02_pidTuning' multiply defined.
+
+)
 \openout1 = `main_report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/npxmi/m/it on input line 19.
-LaTeX Font Info:    Trying to load font information for OML+npxmi on input line 19.
+LaTeX Font Info:    Checking defaults for OML/npxmi/m/it on input line 44.
+LaTeX Font Info:    Trying to load font information for OML+npxmi on input line 44.
  (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/newpx\omlnpxmi.fd
 File: omlnpxmi.fd 2013/03/21 Fontinst v1.933 font definitions for OML/npxmi.
 )
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for U/npxexa/m/n on input line 19.
-LaTeX Font Info:    Trying to load font information for U+npxexa on input line 19.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for U/npxexa/m/n on input line 44.
+LaTeX Font Info:    Trying to load font information for U+npxexa on input line 44.
  (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/newpx\unpxexa.fd
 File: unpxexa.fd 2013/03/24 Fontinst v1.933 font definitions for U/npxexa.
 )
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for LMS/npxsy/m/n on input line 19.
-LaTeX Font Info:    Trying to load font information for LMS+npxsy on input line 19.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for LMS/npxsy/m/n on input line 44.
+LaTeX Font Info:    Trying to load font information for LMS+npxsy on input line 44.
  (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/newpx\lmsnpxsy.fd
 File: lmsnpxsy.fd 2016/07/04 Fontinst v1.933 font definitions for LMS/npxsy.
 )
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for LMX/npxexx/m/n on input line 19.
-LaTeX Font Info:    Trying to load font information for LMX+npxexx on input line 19.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for LMX/npxexx/m/n on input line 44.
+LaTeX Font Info:    Trying to load font information for LMX+npxexx on input line 44.
  (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/newpx\lmxnpxexx.fd
 File: lmxnpxexx.fd 2016/07/04 Fontinst v1.933 font definitions for LMX/npxexx.
 )
-LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    ... okay on input line 44.
  (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count314
-\scratchdimen=\dimen194
-\scratchbox=\box55
-\nofMPsegments=\count315
-\nofMParguments=\count316
-\everyMPshowfont=\toks29
-\MPscratchCnt=\count317
-\MPscratchDim=\dimen195
-\MPnumerator=\count318
-\makeMPintoPDFobject=\count319
-\everyMPtoPDFconversion=\toks30
+\scratchcounter=\count322
+\scratchdimen=\dimen198
+\scratchbox=\box57
+\nofMPsegments=\count323
+\nofMParguments=\count324
+\everyMPshowfont=\toks30
+\MPscratchCnt=\count325
+\MPscratchDim=\dimen199
+\MPnumerator=\count326
+\makeMPintoPDFobject=\count327
+\everyMPtoPDFconversion=\toks31
 ) (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
- (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.sty
-Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
-) (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/grfext\grfext.sty
-Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
- (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefinekeys.sty
-Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-)) (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
-Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
- (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
-Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
-) (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
-Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
-)) (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.sty
-Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
-Package pdftexcmds Info: \pdf@primitive is available.
-Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
-)
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
-Package grfext Info: Graphics extension search list:
-(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 504.
  (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
 *geometry* driver: auto-detecting
@@ -530,10 +650,11 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@mv@tabular=\count320
-\c@mv@boldtabular=\count321
-LaTeX Info: Command `\dddot' is already robust on input line 19.
-LaTeX Info: Command `\ddddot' is already robust on input line 19.
+\c@mv@tabular=\count328
+\c@mv@boldtabular=\count329
+LaTeX Info: Command `\dddot' is already robust on input line 44.
+LaTeX Info: Command `\ddddot' is already robust on input line 44.
+\c@lstlisting=\count330
 (chapter/00_frontmatter.tex
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: pdftex
@@ -622,9 +743,9 @@ Package pdftex.def Info: figures/frontmatter/unipdbg.pdf  used on input line 46.
 
 ]
 LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
-(Font)              scaled to size 24.88pt on input line 31.
+(Font)              scaled to size 24.88pt on input line 56.
 LaTeX Font Info:    Font shape `T1/zpltlf/b/n' will be
-(Font)              scaled to size 24.88pt on input line 31.
+(Font)              scaled to size 24.88pt on input line 56.
  (main_report.toc)
 \tf@toc=\write3
 \openout3 = `main_report.toc'.
@@ -687,38 +808,75 @@ Package pdftex.def Info: figures/01_introduction/inverse_pendulum.pdf  used on i
 [5
 
  <./figures/01_introduction/inverse_pendulum.pdf>]
-
-LaTeX Warning: Reference `....' on page 6 undefined on input line 79.
-
 <figures/02_modelling/blockDiagram.pdf, id=88, 211.5895pt x 40.81247pt>
 File: figures/02_modelling/blockDiagram.pdf Graphic file (type pdf)
 <use figures/02_modelling/blockDiagram.pdf>
-Package pdftex.def Info: figures/02_modelling/blockDiagram.pdf  used on input line 84.
+Package pdftex.def Info: figures/02_modelling/blockDiagram.pdf  used on input line 86.
 (pdftex.def)             Requested size: 318.66948pt x 61.47385pt.
-) [6] [7 <./figures/02_modelling/blockDiagram.pdf>] [8
+ [6 <./figures/02_modelling/blockDiagram.pdf>] (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2025/10/06 1.11 listings language file
+)
+LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
+(Font)              scaled to size 6.0pt on input line 107.
+LaTeX Info: Symbol \textminus not provided by
+            font family zpltlf in TS1 encoding.
+            Default family used instead on input line 108.
+LaTeX Info: Symbol \textminus not provided by
+            font family zpltlf in TS1 encoding.
+            Default family used instead on input line 114.
+) [7] [8
 
-] (main_report.aux)
+] (chapter/ZZ_appendixMatlab.tex
+Appendix A.
+LaTeX Info: Symbol \textminus not provided by
+            font family zpltlf in TS1 encoding.
+            Default family used instead on input line 8.
+LaTeX Info: Symbol \textminus not provided by
+            font family zpltlf in TS1 encoding.
+            Default family used instead on input line 10.
+LaTeX Info: Symbol \textminus not provided by
+            font family zpltlf in TS1 encoding.
+            Default family used instead on input line 27.
+LaTeX Info: Symbol \textminus not provided by
+            font family zpltlf in TS1 encoding.
+            Default family used instead on input line 28.
+LaTeX Info: Symbol \textminus not provided by
+            font family zpltlf in TS1 encoding.
+            Default family used instead on input line 36.
+
+Underfull \vbox (badness 1460) has occurred while \output is active []
+
+ [9
+
+]
+LaTeX Info: Symbol \textminus not provided by
+            font family zpltlf in TS1 encoding.
+            Default family used instead on input line 50.
+LaTeX Info: Symbol \textminus not provided by
+            font family zpltlf in TS1 encoding.
+            Default family used instead on input line 56.
+) [10] (main_report.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2020/03/25>
  ***********
 
 
-LaTeX Warning: There were undefined references.
+LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 10901 strings out of 467871
- 178861 string characters out of 5418375
- 570056 words of memory out of 5000000
- 39564 multiletter control sequences out of 15000+600000
- 679218 words of font info for 90 fonts, out of 8000000 for 9000
+ 12640 strings out of 467871
+ 198050 string characters out of 5418375
+ 960558 words of memory out of 5000000
+ 41312 multiletter control sequences out of 15000+600000
+ 682584 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 74i,10n,79p,586b,634s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI.pfb><C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI_gnu.pfb><C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxmiaX.pfb><C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxsys.pfb><C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txexs.pfb><C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplb.pfb><C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplr.pfb><C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplri.pfb>
-Output written on main_report.pdf (14 pages, 1085432 bytes).
+ 74i,10n,79p,586b,1737s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\banom\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI.pfb><C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI_gnu.pfb><C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxmiaX.pfb><C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxsys.pfb><C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txexs.pfb><C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplb.pfb><C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplr.pfb><C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplri.pfb>
+Output written on main_report.pdf (16 pages, 1101436 bytes).
 PDF statistics:
- 181 PDF objects out of 1000 (max. 8388607)
+ 192 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

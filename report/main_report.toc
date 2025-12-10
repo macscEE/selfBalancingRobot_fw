@@ -9,3 +9,5 @@
 \contentsline {section}{\numberline {2.1}Physical model}{5}{}%
 \contentsline {section}{\numberline {2.2}DC motor modelling}{6}{}%
 \contentsline {section}{\numberline {2.3}Complete model}{6}{}%
+\contentsline {section}{\numberline {2.4}Controller design}{7}{}%
+\contentsline {chapter}{\numberline {A}MATLAB code}{9}{}%

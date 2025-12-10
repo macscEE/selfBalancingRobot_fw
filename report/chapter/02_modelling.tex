@@ -22,6 +22,7 @@ Where:
     \item $\tau$ is the torque applied to the base of the pendulum 
 \end{itemize}
 
+\noindent
 The equations that govern the motion of the inverse pendulum can be derived using Newton's laws.  
 \begin{equation}
     m  \ell^2  \ddot{\theta}(t) = mg\ell sin(\theta) + \tau(t)
@@ -60,6 +61,7 @@ To model the DC motors used in our project, we can use the following equations t
 \label{eq:02_dcMotorElectrical}
 \end{equation}
 
+\noindent
 By applying the Laplace transform to equation \ref{eq:02_dcMotorElectrical}, and
 considering also the gear ratio $K_G = 120$ we obtain:
 
@@ -76,12 +78,53 @@ The obtained transfer function is a first order system.
 The complete model is the product of the two transfer functions obtained: we have to consider
 that we do not consider the \textit{back EMF} of the motor in the transfer function: 
 this is a simplification of the model.
-In Figure \ref{....} the complete block diagram is reported, where $G(s) =  G_{pendulum}(s) \cdot G_{motor}(s) = 
+In Figure \ref{fig:02_blockDiagram} the complete block diagram is reported, where $G(s) =  G_{pendulum}(s) \cdot G_{motor}(s) = 
 \frac{\theta(s)}{v(s)}$.
 
-\begin{figure}
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.7\linewidth]{figures/02_modelling/blockDiagram.pdf}
     \caption{Complete block diagram of the self-balancing robot model}
+\label{fig:02_blockDiagram}
 \end{figure}
 
+\section{Controller design}
+Now that we have the complete transfer function of the system we can 
+design the controller: we will use a \textit{PID controller}.
+The PID controller has the following transfer function:
+\begin{equation}
+    G_{PID}(s) = K_P + \frac{K_I}{s} + K_D s
+\end{equation}
+
+\noindent
+Where $K_P$, $K_I$ and $K_D$ are the proportional, integral and derivative gains respectively.
+We want a controller such that the rise time of the closed loop system is around $50ms$ and the overshoot is less than $15\%$:
+rise time is choosen in order to have a fast response of the system, while overshoot is limited in order to avoid that the motors 
+broke due to overvoltage.  
+We choose to let an automatic tuning \textit{MATLAB} function to find the best values for the PID gains:
+
+\begin{lstlisting}[language=Matlab, caption=MATLAB code for PID tuning, label=lst:02_pidTuning, style=mystyle]
+% rise time
+ts = 50e-3;
+% overshoot choosen to be under a safe margin of maximum voltage of DC motors, that is 7.5V
+M = 0.15;
+
+% Crossover frequency and phase margin
+fct = 2/(ts*2*pi);
+pmt = 1.04 - 0.8*M;
+
+% PID tuning options
+opt = pidtuneOptions;
+opt.PhaseMargin = 180*pmt/pi;
+
+% PID controller design, with filter to reduce noise in derivative action
+gi = pidtune(G_sys, 'pidf', 2*pi*fct, opt);
+\end{lstlisting}
+
+The obtained parameters are:
+\begin{itemize}
+    \item $K_P = 18.60$
+    \item $K_I = 1.15$
+    \item $K_D = 0.065$
+    \item $T_f = 10ms$
+\end{itemize}
