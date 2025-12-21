@@ -1,0 +1,174 @@
+\begin{chapter}{Control}
+
+\label{chap:control}
+
+\section{High Level System Description}
+
+
+\section{Finite State Machine}
+The firmware makes use of a Finite State Machine to ensure the correct sequence of events.
+Towards the objective of clean and mantainable code we defined the RobotState type shown in \ref{lst:03_FSM_definition}. The definition of a custom type allows to easily recognize code blocks and inherently limits the admissible states to the ones explicitly stated in the enumeration. 
+\begin{lstlisting}[language=C, caption=FSM definition, label=lst:03_FSM_definition, style=c_style]
+typedef enum{
+  STATE_INIT,
+  STATE_MEASURE_ANGLE,
+  STATE_COMPUTE_PID,
+  STATE_DRIVE_MOTORS,
+  STATE_RESTART,
+  STATE_CRASHED
+}RobotState;
+\end{lstlisting}
+
+We used a "switch" control structure the main loop to cycle between states.
+
+\begin{enumerate}
+    \item INIT: initialization state, utilized simply for the startup of the system
+    \item MEASURE\_ANGLE: in this state, the robot has to start the angle measurement
+    \item COMPUTE\_PID: the measured angle can be utilized to compute the PID output.
+    \item DRIVE\_MOTORS: the computed PID value is taken and processes to be given as input to the PWM module driving the motors.
+    \item RESTART: used only at low level to take care of system critical conditions such as parameter overflow.
+    \item CRASHED: when the accelerometer reading exceeds a fixed treshold, the robot enters the "crashed" state, forcing it to stop driving the motors.
+
+    \end{enumerate}
+
+\begin{lstlisting}[language=C, caption=FSM Working Principle, label=lst:03_FSM_loop, style=c_style]
+switch(currentState){
+    case STATE_MEASURE_ANGLE:{
+        
+        angle=angleEstimation(angle);
+        if(angle.acc>CRASH_TRESHOLD || angle.acc<-CRASH_TRESHOLD){
+        currentState = STATE_CRASHED;
+        }else{
+        currentState = STATE_COMPUTE_PID;
+        }
+        digitalWrite(DEBUG_PIN_1, 1);
+        break;
+    }
+    case STATE_COMPUTE_PID:{
+        PIDresponse(angle.fusion);
+        currentState = STATE_DRIVE_MOTORS;
+        break;
+    }
+    case STATE_DRIVE_MOTORS:{
+        motorControl(Output);
+        digitalWrite(DEBUG_PIN_1, 0);
+        buf[wptr] = {angle.acc, angle.gyro, angle.fusion, Output, angle.gyroRate}; // buffer for serial print
+        wptr = (wptr + 1) % 512;
+        currentState = STATE_MEASURE_ANGLE;
+        break;
+    }
+    case STATE_CRASHED:{
+        motorControl(0);
+        PIDresponse(0);
+        buf[wptr] = {angle.acc, angle.gyro, angle.fusion, Output, angle.gyroRate}; // buffer for serial print
+        wptr = (wptr + 1) % 512;
+        currentState = STATE_MEASURE_ANGLE;
+        break;
+    }
+}
+
+\end{lstlisting}
+
+\section{Timing Constraints}
+In this project, as in any digital control system, it is crucial that the timing is regular and as precise as possible.
+In particular we have to pay attention to the integrative action of the PID computation and of the complementary filter.
+
+During our first tests we did not pay much attention to these issues, which resulted in an uncontrollable system. 
+With three simple precautions we have avoided issues regarding these timings.
+
+\subsection{Hardware Interrupt}
+We configured the interrupt in the setup sequence of the microcontroller:
+
+\begin{lstlisting}[language=C, caption=Interrupt Setup, label=lst:03_interrupt_setup, style=c_style]
+  Timer0_Cfg = timerBegin(0, 80, true); // 80e6/80 = 1e6 => 1 tick = 1 us
+  timerAttachInterrupt(Timer0_Cfg, &Timer0_ISR, true);
+  timerAlarmWrite(Timer0_Cfg, 1000, true); //1000*1us = 1ms
+  timerAlarmEnable(Timer0_Cfg);
+\end{lstlisting}
+The first line initializes a hardware timer with a prescaler of 80. Since the microcontroller runs at 80 MHz, each timer tick corresponds to:
+\begin{equation}
+t_\text{tick} = \frac{1}{f_\text{timer}} = \frac{\text{prescaler}}{f_\text{CPU}} = \frac{80}{80\,\text{MHz}} = 1~\mu\text{s}.
+\end{equation}
+The second line attaches our interrupt service routine \texttt{Timer0\_ISR} to this timer.  
+The third line sets the alarm value to 1000 ticks, which corresponds to an interrupt period of:
+\begin{equation}
+T_s = t_\text{tick} \times 1000 = 1~\mu\text{s} \times 1000 = 1~\text{ms}.
+\end{equation}
+Finally, the alarm is enabled, so the ISR is called every $T_s = 1$~ms.  It coult be noted that this timing is not as fast as the microcontroller allows. Since the system's bottleneck is the minimum motor on-time, we have chosen $1 ms$ interrupt period as is fast enough to provide accurate control while leaving a comfortable amount of time for non-critical tasks.
+
+The interrupt service routine (ISR) is very simple as the Arduino core hides most of the options and low-level complexity from the user. The only action we perform in this routine is to set the global flag \texttt{tick}.
+\begin{lstlisting}[language=C, caption=Hardware ISR, label=lst:03_isr, style=c_style]
+void IRAM_ATTR Timer0_ISR(){
+  portENTER_CRITICAL_ISR(&timerMux);
+  tick = true;
+  portEXIT_CRITICAL_ISR(&timerMux);
+}
+\end{lstlisting}
+
+In the main loop, we simply detect the value of the global flag \texttt{tick}. If this flag is set to \texttt{true}, it means the ISR has been called, and we can move on to our code.
+Otherwise, if the flag is not set, the software keeps running in the outer loop. 
+Note that while the software is running, the microcontroller is not necessarily idle: if it was, we would be heavily bottlenecking our system and needlessly reducing our bandwidth. Instead, the microcontroller is simply receiving data from the MPU6050, computing PID or sending out data over serial.
+
+ 
+
+\begin{lstlisting}[language=C, caption=Tick Flag use in Loop, label=lst:03_tick_main_loop, style=c_style]
+void loop() {
+  if(tick == true){
+    portENTER_CRITICAL(&timerMux);
+    tick = false;
+    portEXIT_CRITICAL(&timerMux);
+    ... // The following code is executed only when an interrupt happens
+    }
+    ... // The following code is executed free running in the loop
+}
+\end{lstlisting}
+
+
+\subsection{Adaptive Window Size}
+
+Let us consider the code block tasked with the estimation of angle from the gyroscope data.
+The gyroscope provides only angluar speed $\omega(t)$ which needs to be integrated to obtain the angle $\theta(t)$. 
+\begin{equation}
+\theta(t) = \theta_0 + \int_0^t \omega(\tau) \, d\tau
+\label{eq:03_gyro_continuous}
+\end{equation}
+Since we are in a digital domain, this integration is performed by summing discrete angular velocity samples at a fixed interval $T$:
+\begin{equation}
+\theta[k] = \theta[k-1] + \omega[k] \, T
+\label{eq:03_gyro_discrete}
+\end{equation}
+Clearly, to achieve consistent results, the integration window must be fixed. This has been partially resolved thanks to the interrupt time base.
+However, small deviations can still occur.
+To compensate for these variations, the actual sampling interval $\Delta t_k$ can be measured dynamically between consecutive samples.
+
+\begin{equation}
+\theta[k] = \theta[k-1] + \omega[k] \, \Delta t_k
+\label{eq:03_gyro_adaptive}
+\end{equation}
+
+In our code (\ref{lst:03_adaptive_window_size}) we used the function "micros()" to obtain the absolute time of the current function call. Subtracting the value of the previous function call, stored in the global variable "imuFilter\_lastCall", we can obtain the current $\Delta t_k$.
+We also introduced a simple initialization to ensure the expected sampling time $\Delta t_k = 1 ms$ is applied to the first computation.
+
+\begin{lstlisting}[language=C, caption=Adaptive Window Size, label=lst:03_adaptive_window_size, style=c_style]
+unsigned long imuFilter_now = micros();
+  double imuFilter_dt=0;
+  if(imuFilter_lastCall == 0){
+    imuFilter_dt = 1e-3;
+  }else{
+    imuFilter_dt = (double)(imuFilter_now - imuFilter_lastCall) / 1e6;
+  }
+  imuFilter_lastCall = imuFilter_now;
+
+// [deg] angle estimated from gyroscope rate integrated over time
+  measAngle.gyro = previousAngle.gyro + gyroRate * imuFilter_dt;
+\end{lstlisting}
+
+
+\subsection{Serial Output Buffering}
+Typically, in simple Arduino projects, it is possible to print complex strings over the serial interface for debugging or event logging purposes. In time-critical applications, however, serial communication can introduce significant timing disturbances due to its asynchronous operation.
+
+In our system, it is crucial that the microcontroller can read sensor data and compute PID output within a fixed time window. We observed that, when a "Serial.print()" call is inserted into this loop, the execution time can no longer be considered deterministic, varying with a range of several milliseconds. Although serial transmission is handled asynchronously via interrupts, the function may block if the transmit buffer becomes full, leading to unpredictable delays within the control loop.
+
+Our solution to this problem is a custom buffer. During each iteration of the control loop, the useful data is written in this buffer instead of being transmitted directly. At the end of the loop, when the microcontroller would otherwise be idle, the buffered data is trasmitted. In our case, this simple strategy is enough to preserve deterministic loop timing.
+
+\end{chapter}
