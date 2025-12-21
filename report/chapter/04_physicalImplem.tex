@@ -1,0 +1,31 @@
+\begin{chapter}{Physical Implementation}
+\label{chap_04:physicalImplem}
+
+\subsection{Mechanical structure}
+Moving from the theoretical model and control design to the actual implementation, we design the physical structure of the robot
+and printed with a 3D printer: all the structure is made of PLA material while the wheels are made of 
+TPU to ensure better grip on the ground.
+
+The complete structure is shown in Figure \ref{}.
+
+\subsection{PID adjustment}
+
+The PID controller parameters obtained in Chapter \ref{chap_02:modelling} are a good starting point for the real 
+implementation, but due to the simplifications made in the model and the non-idealities of the real components,
+it is necessary to adjust them experimentally.
+After several tests, the final parameters used in the firmware are:
+\begin{itemize}
+    \item $K_P = 10$
+    \item $K_I = 0.02$
+    \item $K_D = 0.4$
+\end{itemize}
+These values ensure a good balancing performance, with a fast response to disturbances and minimal oscillations around the vertical position.
+
+\subsection{Other adjustment}
+Other parameters that needed to be adjust experimentally were for example the full-scale range of the accelerometer:
+we experinced that setting it to $\pm 4g$ ensured a good compromise between sensitivity and range of measurement, while 
+setting it to $\pm 2g$ resulted in a high noise measurement.
+
+In order to use the robot without the need of a computer connected via USB, we inserted a simple buck converter to power the ESP32
+from the batteries.
+\end{chapter}

@@ -1,6 +1,6 @@
 \begin{chapter}{Control}
 
-\label{chap:control}
+\label{chap_03:control}
 
 \section{High Level System Description}
 
@@ -29,7 +29,7 @@ We used a "switch" control structure the main loop to cycle between states.
     \item RESTART: used only at low level to take care of system critical conditions such as parameter overflow.
     \item CRASHED: when the accelerometer reading exceeds a fixed treshold, the robot enters the "crashed" state, forcing it to stop driving the motors.
 
-    \end{enumerate}
+\end{enumerate}
 
 \begin{lstlisting}[language=C, caption=FSM Working Principle, label=lst:03_FSM_loop, style=c_style]
 switch(currentState){

@@ -14,7 +14,7 @@ The main components of the self-balancing robot are reported in Table \ref{tab:0
         ESP32 & Microcontroller \\
         MPU6050 & Inertial Measurement Unit (IMU) sensor \\
         DFRobot DC 6V  & DC Motors \\
-        DRV8871 & Motor Driver \\
+        DRV8833 & Motor Driver \\
         Molicel P42A 3.6V 45A & Series of two batteries for power supply. \\
         \hline
     \end{tabular}
@@ -85,17 +85,17 @@ can draw a stall current of up to 1.2A.
 \label{fig:01_dcMotor}
 \end{figure}
 
-\subsection{DRV8871}
+\subsection{DRV8833 Motor Driver}
 
-To control the DC motors, we use the DRV8871 motor driver (shown in Figure \ref{fig:01_drv8871}), which is 
+To control the DC motors, we use the DRV8833 motor driver (shown in Figure \ref{fig:01_drv8833}), which is 
 capable of handling motor supply voltages from 6.5V to 45V. It's a double full-bridge driver, allowing 
 for bidirectional control of the motors.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.2\textwidth]{figures/01_introduction/drv8871.jpg}
-    \caption{DRV8871 motor driver}
-\label{fig:01_drv8871}
+    \includegraphics[width=0.6\textwidth]{figures/01_introduction/drv8833.jpeg}
+    \caption{DRV8833 motor driver}
+\label{fig:01_drv8833}
 \end{figure}
 
 \noindent

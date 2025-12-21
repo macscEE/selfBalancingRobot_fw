@@ -1,3 +1,93 @@
+\appendix
+\chapter{MATLAB code}
+\label{chap_ZZ:appendixMatlab}
+
+In this appendix the main MATLAB code used for the modelling and controller design of the self-balancing robot is reported.
+
+\begin{lstlisting}[language=Matlab, caption=MATLAB code for PID tuning, label=lst:ZZ_pidTuning, style=mystyle]
+%% Self-balancing robot parameters
+
+% Using stand-alone model of DC motor and inverse pendulum to derive transfer function
+clc;
+clearvars;
+% Inverse pendulum data
+% [Kg] total mass, considering also motors and battery
+m = 0.1; 
+% [m/s^2] gravity acceleration   
+g = 9.81;   
+% [m] length of the pendulum
+l = 0.08;    
+% [Kg*m^2] moment of inertia of inverse pendulum
+J = m*l^2;  
+
+% DC motor parameters
+% [ohm] measured resistance
+R = 3.5;    
+% [H] estimated from comparison with similar motors
+L = 50e-6;    
+% [V*s] torque costant (Va_max-Ra*Ia)*1/Omega_max
+KePhi = 0.336;  
+% gear ratio
+k_gear = 120;   
+
+%% Transfer functions
+s = tf('s');
+% between torque to angle of the inverse pendulum
+G_torq_ang = (1/J) *(1/(s^2 - g/l));
+figure('Name', 'Transfer function of the inverse pendulum');
+bode(G_ang_torq);
+
+% between voltage to torque of the DC motor
+G_volt_torq = KePhi * k_gear/(R + L*s); 
+figure('Name', 'Transfer function of the DC motor');
+bode(G_torq_volt);
+
+% total transfer function
+G_sys = G_volt_torq*G_torq_ang;
+
+%% Requirements: tempo di salita e overshoot
+% rise time
+ts = 50e-3;
+% overshoot choosen to be under a safe margin of maximum voltage of DC motors, that is 7.5V
+M = 0.15;
+
+% Crossover frequency and phase margin
+fct = 2/(ts*2*pi);
+pmt = 1.04 - 0.8*M;
+
+% PID tuning options
+opt = pidtuneOptions;
+opt.PhaseMargin = 180*pmt/pi;
+
+% PID controller design, with filter to reduce noise in derivative action
+gi = pidtune(G_sys, 'pidf', 2*pi*fct, opt);
+
+% Regulator transfer function
+G_reg = gi.Kp + gi.Ki/s + gi.Kd*s/(1+s*gi.Tf);
+
+fprintf('PID parameters: Kp %.4f, Ki %.4f, Kd %.4f\n', gi.Kp, gi.Ki, gi.Kd);
+
+[Nreg, Dreg] = tfdata(G_reg, 'v'); 
+margin(G_reg*G_sys);
+grid on;
+
+%% Step response of the closed loop system
+G_cl = feedback(G_reg*G_sys, 1);
+figure('Name', 'Step response of the closed loop system');
+stepSetting = RespConfig('Amplitude', 20, 'Bias', -20);
+step(G_cl, stepSetting);
+title('Step response of the closed loop system');
+grid on;
+hold on;
+ylabel("Angle (degrees)");
+xlabel("Time");
+fontsize(gca, 13, 'points');
+\end{lstlisting}
+
+\chapter{ESP32 code}
+\label{chap_ZZ:appendixESP32}
+
+\begin{lstlisting}[language=C++, caption=Arduino code for ESP 32, label=lst:ZZ_firmware, style=mystyle]
 // Load necessary libraries
 #include <Arduino.h>
 #include <Wire.h>
@@ -85,8 +175,6 @@ volatile int wptr_old = 0;
 // PID tuning parameters
 
 uint16_t sampleTime = 4; //sampletime in ms 
-//double Kp=5, Ki=0.1, Kd=0.05;
-//double Kp=10, Ki=0.02, Kd=0.3; //08/12/2025 14:06
 double Kp=10, Ki=0.02, Kd=0.4; //08/12/2025 15:05
 // Create an MPU6050 object
 MPU6050 mpu;
@@ -100,26 +188,6 @@ double pitchAcc, pitchGyro, rateGyro;
 // Complementary filter
 unsigned long imuFilter_lastCall=0; 
 
-/*
-double gyroBias = 0.0;
-const int CAL_SAMPLES = 500;
-double Kc = 0.02;           // accel correction gain (per sample)
-double accelTrustThreshold = 0.15;
-
-void calibrateGyroBias() {
-  long sum = 0;
-  for (int i = 0; i < CAL_SAMPLES; ++i) {
-    mpu.getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
-    sum += (long)gx;           // use the same axis as your pitch gyro
-    delay(2);                  // small delay so sampling is not back-to-back
-  }
-  gyroBias = (double)sum / (double)CAL_SAMPLES;
-  // convert to deg/s bias
-  gyroBias = gyroBias * 0.007629395;
-  Serial.print("Gyro bias (deg/s): "); Serial.println(gyroBias);
-}
-*/
-
 // Complementary filter parameters
 double imuFilter_alpha = 0.93; // Complementary filter coefficient -> higher value gives more weight to gyroscope
 
@@ -128,7 +196,7 @@ double imuFilter_alpha = 0.93; // Complementary filter coefficient -> higher val
 const int pins[] = {M_R_forward, M_R_backward, M_L_forward, M_L_backward};
 const int channels[] = {CH_M_R_forward, CH_M_R_backward, CH_M_L_forward, CH_M_L_backward};
 const int freq = 100;//19531;  // Frequenza massima per 12 bit (80 MHz / 4096)
-const int res = 8;     // Risoluzione a 8 bit (0–255)
+const int res = 8;
 
 hw_timer_t *Timer0_Cfg = NULL;
 portMUX_TYPE timerMux = portMUX_INITIALIZER_UNLOCKED;
@@ -249,7 +317,10 @@ void loop() {
         }
       }
     }
+    //Serial.println("Angle: " + String(angle) + " Pitch Acc " + String(pitchAcc) + " Pitch Gyro " + String(pitchGyro) + " PID Output "+ String(Output)+",");
+    //Serial.println(String(angle) +","+ String(pitchAcc) +","+ String(pitchGyro) +","+ String(Output)+" ");
 
+    if((wptr != wptr_old) && (wptr%10==0)){
       Serial.print((int16_t)(buf[wptr].angleAcc));
       Serial.print(",");
       Serial.print((int16_t)(buf[wptr].angleGyro));
@@ -285,7 +356,7 @@ EstimatedAngle angleEstimation(EstimatedAngle previousAngle){
   accFilter.az_f += accFilter.alpha * (az_d - accFilter.az_f);
 
   // Estimation pitch angle (y-axis) accelerometer
-  measAngle.acc = atan2(ay_d, az_d)*(360/PI); // [°] angle estimated from accelerometer (FILTERED)
+  measAngle.acc = atan2(ay_d, az_d)*(360/PI); // angle estimated from accelerometer (FILTERED)
   
   // Estimation pitch angle (y-axis) gyroscope
   gyroRate = (double)gx * (1.0/131); // [deg/s]
@@ -342,3 +413,4 @@ void motorControl(int16_t pwm){
     ledcWrite(CH_M_L_backward, 0);
   }
 }
+\end{lstlisting}

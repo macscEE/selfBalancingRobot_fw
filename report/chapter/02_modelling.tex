@@ -1,5 +1,5 @@
 \begin{chapter}{Modelling and simulation}
-
+\label{chap_02:modelling}
 Now that we described the hardware components of our self-balancing robot in Chapter \ref{ch:01_introduction}, we can proceed to
 model the system and simulate it's behavior in MATLAB/Simulink environment.
 
@@ -117,14 +117,25 @@ pmt = 1.04 - 0.8*M;
 opt = pidtuneOptions;
 opt.PhaseMargin = 180*pmt/pi;
 
-% PID controller design, with filter to reduce noise in derivative action
-gi = pidtune(G_sys, 'pidf', 2*pi*fct, opt);
+% PID controller design
+gi = pidtune(G_sys, 'pid', 2*pi*fct, opt);
 \end{lstlisting}
 
 The obtained parameters are:
 \begin{itemize}
-    \item $K_P = 18.60$
-    \item $K_I = 1.15$
-    \item $K_D = 0.065$
-    \item $T_f = 10ms$
+    \item $K_P = 0.0361$
+    \item $K_I = 0.1412$
+    \item $K_D = 0.0023$
 \end{itemize}
+
+\section{Simulation of the model}
+Now that we have the complete linearized model of the system, we can evaluate
+its behavior with a step response: we impose a step of $20^{\circ}$, simulating a small disturbance that makes the robot tilt of $20^{\circ}$ from the vertical position.
+The step response is reported in Figure \ref{fig:02_stepResponse}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\linewidth]{figures/02_modelling/Step response of the closed loop system.pdf}
+    \caption{Step response of the closed loop system with PID controller}
+\label{fig:02_stepResponse}
+\end{figure}

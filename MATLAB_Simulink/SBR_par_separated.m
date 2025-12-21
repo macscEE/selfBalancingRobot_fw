@@ -48,12 +48,24 @@ pmt = 1.04 - 0.8*M;
 opt = pidtuneOptions;
 opt.PhaseMargin = 180*pmt/pi;
 
-[gi, info] = pidtune(G_sys, 'pidf', 2*pi*fct, opt);    % 'pidf' così ho il filtro in HF
+gi= pidtune(G_sys, 'pid', 2*pi*fct, opt);    % 'pidf' così ho il filtro in HF per simulare in Simulink
 
 G_reg = gi.Kp + gi.Ki/s + gi.Kd*s/(1+s*gi.Tf);
 
-fprintf('PID parameters: Kp %.4f, Ki %.4f, Kd %.4f, Tf %.2f [msec] \n', gi.Kp, gi.Ki, gi.Kd, gi.Tf*1e3);
+fprintf('PID parameters: Kp %.4f, Ki %.4f, Kd %.4f\n', gi.Kp, gi.Ki, gi.Kd);
 
 [Nreg, Dreg] = tfdata(G_reg, 'v');    % 'v' per averceli in vettore
 % margin(G_reg*G_sys);
 % grid on;
+
+%% Step response of the closed loop system
+G_cl = feedback(G_reg*G_sys, 1);
+figure('Name', 'Step response of the closed loop system');
+stepSetting = RespConfig('Amplitude', 20, 'Bias', -20);
+step(G_cl, stepSetting);
+title('Step response of the closed loop system');
+grid on;
+hold on;
+ylabel("Angle (degrees)");
+xlabel("Time");
+fontsize(gca, 13, 'points');
