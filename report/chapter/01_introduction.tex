@@ -87,9 +87,10 @@ can draw a stall current of up to 1.2A.
 
 \subsection{DRV8833 Motor Driver}
 
-To control the DC motors, we use the DRV8833 motor driver (shown in Figure \ref{fig:01_drv8833}), which is 
-capable of handling motor supply voltages from 6.5V to 45V. It's a double full-bridge driver, allowing 
-for bidirectional control of the motors.
+To control the DC motors, we use two DRV8833 motor drivers (shown in Figure \ref{fig:01_drv8833}), which are 
+capable of handling motor supply voltages from 6.5V to 45V. They are double full-bridge drivers, allowing 
+for bidirectional control of two motors each. However, each channel of each driver can only supply 2A, slightly less than what our motors need in steady state to achieve maximum torque.
+For this reason, we connected the two channels of each driver in parallel, to achieve a maximum capability of 4A per motor.
 
 \begin{figure}[h]
     \centering
@@ -97,7 +98,3 @@ for bidirectional control of the motors.
     \caption{DRV8833 motor driver}
 \label{fig:01_drv8833}
 \end{figure}
-
-\noindent
-It's capable of delivering up to 3.6A continuous current per channel, which is more than sufficient for our DC motors.
-

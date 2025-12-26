@@ -3,7 +3,56 @@
 \label{chap_03:control}
 
 \section{High Level System Description}
+The objective of the control is to stabilize the robot, returning its angle to the set reference.
+The microcontroller reads the angle via an inertial unit, the MPU6050 sensor, and outputs a PWM that feeds into the DC motor driver. Hence, the system is characterized by a singular position loop.
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figures/03_control/03_simplified_system.pdf}
+    \caption{Simplified block diagram of the control structure}
+\label{fig:03_high_level_system}
+\end{figure}
+
+\section{Angle Measurement}
+Retrieving the required angle from the inertial unit is not as simple as receiving the raw data.
+First of all, the output of the MPU6050 unit is composed of two three-valued vectors: (ax, ay, az) are the coordinates in space given by the accelerometer, while (gx, gy, gz) are the components of angular velocity given by the gyroscope.
+
+\subsection{Accelerometer Derived Angle}
+The accelerometer data can be utilized to determine the angle in respect to the initial position thanks to trigonometry, utilizing the arctangent function:
+\begin{equation}
+\theta_{acc} = \arctan\!\left(\frac{y_{acc}}{z_{acc}}\right) \cdot \frac{180}{\pi}
+\label{eq:03_accelerometer_angle}
+\end{equation}
+Initially, we utilized only this measurement, but it turned out it is too noisy and slow for accurate and fast transient reponse.
+
+\subsection{Gyroscope Data}
+The gyroscope outputs angular velocity $\omega(t)$ readings along the three rotational axes of the device. In our case, by integrating the speed of rotation along x, we obtain relative angle from the starting point.
+
+\begin{equation}
+\theta_{gyro}[k] = \theta_{gyro}[k-1] + \omega_{gyro}[k] \, \Delta t_s
+\label{eq:03_gyroscope_angle}
+\end{equation}
+
+The angle obtained from this method is fast, but imprecise. At the same time, it is gravely affected by low-frequency drift and, on its own, it is not suitable for our robot.
+
+\subsection{Complementary Filter}
+Instead of relying on either one of the two angle measurements, we took the best from each of them, by combining the low frequency response of the accelerometer and the high frequency dynamics of the gyroscope.
+We used the following complementary filter to mix the readings:
+\begin{equation}
+\theta[k] =
+\alpha \left(\theta[k-1]+ \omega_{\mathrm{gyro}}[k]\, \Delta t_{\mathrm{s}}\right)
++ (1 - \alpha)\, \theta_{\mathrm{acc}}[k]
+\label{eq:03_fusion_angle}
+\end{equation}
+
+We found empirically that the $\alpha$ parameter must be very high, in the order of $0.90 - 0.99$, to guarantee the quick response from the gyroscope to be dominant.
+The output from this filter is both stable and clean at low frequency and fast for quick transients, providing already a strong derivative action that acts regardless of the PID regulator. Also for this reason, the system had to be tuned experimentally. 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figures/03_control/03_angle_estimation.pdf}
+    \caption{Block diagram of the angle measurement}
+\label{fig:02_blockDiagram}
+\end{figure}
 
 \section{Finite State Machine}
 The firmware makes use of a Finite State Machine to ensure the correct sequence of events.
@@ -14,7 +63,6 @@ typedef enum{
   STATE_MEASURE_ANGLE,
   STATE_COMPUTE_PID,
   STATE_DRIVE_MOTORS,
-  STATE_RESTART,
   STATE_CRASHED
 }RobotState;
 \end{lstlisting}
@@ -26,7 +74,6 @@ We used a "switch" control structure the main loop to cycle between states.
     \item MEASURE\_ANGLE: in this state, the robot has to start the angle measurement
     \item COMPUTE\_PID: the measured angle can be utilized to compute the PID output.
     \item DRIVE\_MOTORS: the computed PID value is taken and processes to be given as input to the PWM module driving the motors.
-    \item RESTART: used only at low level to take care of system critical conditions such as parameter overflow.
     \item CRASHED: when the accelerometer reading exceeds a fixed treshold, the robot enters the "crashed" state, forcing it to stop driving the motors.
 
 \end{enumerate}
@@ -68,6 +115,13 @@ switch(currentState){
 }
 
 \end{lstlisting}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figures/03_control/03_state_machine.pdf}
+    \caption{Block diagram of the state machine}
+\label{fig:03_state_machine}
+\end{figure}
 
 \section{Timing Constraints}
 In this project, as in any digital control system, it is crucial that the timing is regular and as precise as possible.
@@ -170,5 +224,7 @@ Typically, in simple Arduino projects, it is possible to print complex strings o
 In our system, it is crucial that the microcontroller can read sensor data and compute PID output within a fixed time window. We observed that, when a "Serial.print()" call is inserted into this loop, the execution time can no longer be considered deterministic, varying with a range of several milliseconds. Although serial transmission is handled asynchronously via interrupts, the function may block if the transmit buffer becomes full, leading to unpredictable delays within the control loop.
 
 Our solution to this problem is a custom buffer. During each iteration of the control loop, the useful data is written in this buffer instead of being transmitted directly. At the end of the loop, when the microcontroller would otherwise be idle, the buffered data is trasmitted. In our case, this simple strategy is enough to preserve deterministic loop timing.
+
+
 
 \end{chapter}

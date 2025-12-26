@@ -1,17 +1,17 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.24)  21 DEC 2025 19:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.16)  27 DEC 2025 00:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/banom/OneDrive - Università degli Studi di Padova/Università/Magistrale/Secondo anno/Modelling and Control of Electric Drives/progetto/selfBalancingRobot_fw/report/main_report.tex"
-(c:/Users/banom/OneDrive - Università degli Studi di Padova/Università/Magistrale/Secondo anno/Modelling and Control of Electric Drives/progetto/selfBalancingRobot_fw/report/main_report.tex
+**c:/Users/nicol/Documents/Projects/selfBalancingRobot_fw/report/main_report.tex
+(c:/Users/nicol/Documents/Projects/selfBalancingRobot_fw/report/main_report.tex
 LaTeX2e <2025-11-01>
-L3 programming layer <2025-10-24>
-(C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/extsizes\extreport.cls
+L3 programming layer <2025-11-06>
+(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/extsizes\extreport.cls
 Document Class: extreport 1996/10/08 v1.0 Non Standard LaTeX document class
-(C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
+(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
 File: size12.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
-) (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/base\exscale.sty
+) (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/base\exscale.sty
 Package: exscale 2025/06/05 v2.1i Standard LaTeX package exscale
 LaTeX Font Info:    Redeclaring symbol font `largesymbols' on input line 57.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
@@ -32,29 +32,29 @@ LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 \abovecaptionskip=\skip49
 \belowcaptionskip=\skip50
 \bibindent=\dimen149
-) (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+) (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
 Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
- (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+ (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks17
-) (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+) (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
 Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
- (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+ (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
 Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
-) (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
+) (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 106.
- (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+ (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
 File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen150
 \Gin@req@width=\dimen151
-) (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/caption\subcaption.sty
+) (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/caption\subcaption.sty
 Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
- (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
+ (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
 Package: caption 2023/08/05 v3.6o Customizing captions (AR)
- (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
+ (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
 Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
 \caption@tempdima=\dimen152
 \captionmargin=\dimen153
@@ -73,11 +73,11 @@ Package caption Info: New subtype `subfigure' on input line 238.
 \c@subfigure=\count286
 Package caption Info: New subtype `subtable' on input line 238.
 \c@subtable=\count287
-) (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+) (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
- (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+ (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
- (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+ (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
 Package: iftex 2024/12/12 v1.0g TeX engine tests
 ))
 \Gm@cnth=\count288
@@ -92,17 +92,17 @@ Package: iftex 2024/12/12 v1.0g TeX engine tests
 \Gm@layouthoffset=\dimen166
 \Gm@layoutvoffset=\dimen167
 \Gm@dimlist=\toks18
- (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg)) (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/newpx\newpxtext.sty
+ (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg)) (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/newpx\newpxtext.sty
 Package: newpxtext 2025/06/07 v1.542 LaTeX and unicode LaTeX support for TeXGyrePagellaX (Michael Sharpe)
- `newpxtext' v1.542, 2025/06/07 Text macros taking advantage of TeXGyre Pagella and its extensions (msharpe) (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+ `newpxtext' v1.542, 2025/06/07 Text macros taking advantage of TeXGyre Pagella and its extensions (msharpe) (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
 Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
-) (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+) (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
 Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
- (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+ (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 274.
- (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+ (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
 Package xcolor Info: Model `RGB' extended on input line 1365.
@@ -112,44 +112,44 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
-) (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/xpatch\xpatch.sty (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
-Package: expl3 2025-10-24 L3 programming layer (loader) 
- (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+) (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/xpatch\xpatch.sty (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
+Package: expl3 2025-11-06 L3 programming layer (loader) 
+ (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count291
 ))
 Package: xpatch 2020/03/25 v0.3a Extending etoolbox patching commands
- (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xparse\xparse.sty
+ (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xparse\xparse.sty
 Package: xparse 2025-10-09 L3 Experimental document command parser
-) (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+) (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
 Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count292
-)) (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/xkeyval\xkeyval.sty
+)) (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/xkeyval\xkeyval.sty
 Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
- (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkeyval.tex (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkvutils.tex
+ (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkeyval.tex (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkvutils.tex
 \XKV@toks=\toks19
 \XKV@tempa@toks=\toks20
 )
 \XKV@depth=\count293
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
-)) (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/base\textcomp.sty
+)) (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/base\textcomp.sty
 Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
-) (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/xstring\xstring.sty (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/generic/xstring\xstring.tex
+) (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/xstring\xstring.sty (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/generic/xstring\xstring.tex
 \xs_counta=\count294
 \xs_countb=\count295
 )
 Package: xstring 2023/08/22 v1.86 String manipulations (CT)
-) (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
+) (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
 Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
-) (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/carlisle\scalefnt.sty)
+) (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/carlisle\scalefnt.sty)
 LaTeX Font Info:    Setting zplLF sub-encoding to TS1/0 on input line 40.
 LaTeX Font Info:    Setting zplTLF sub-encoding to TS1/0 on input line 40.
 LaTeX Font Info:    Setting zplOsF sub-encoding to TS1/0 on input line 40.
 LaTeX Font Info:    Setting zplTOsF sub-encoding to TS1/0 on input line 40.
 \zpl@cnt=\count296
- (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/fontaxes\fontaxes.sty
+ (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/fontaxes\fontaxes.sty
 Package: fontaxes 2025-05-24 v2.0.1 Font selection axes (deprecated)
- (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/figureversions\figureversions.sty
+ (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/figureversions\figureversions.sty
 Package: figureversions 2025-04-29 v1.0.1 Figure versions
 ))
 \zpl@sixem=\dimen168
@@ -168,37 +168,37 @@ Package: figureversions 2025-04-29 v1.0.1 Figure versions
 \zpl@dimC=\dimen181
 LaTeX Info: Redefining \oldstylenums on input line 807.
 LaTeX Font Info:    Trying to load font information for T1+zplLF on input line 815.
- (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/newpx\t1zpllf.fd
+ (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/newpx\t1zpllf.fd
 File: t1zpllf.fd 2021/05/25 v1.0 font definition file for T1/zpl/lf
 )
 LaTeX Font Info:    Trying to load font information for T1+zplTLF on input line 816.
- (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/newpx\t1zpltlf.fd
+ (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/newpx\t1zpltlf.fd
 File: t1zpltlf.fd 2021/05/25 v1.0 font definition file for T1/zpl/tlf
 )
 LaTeX Font Info:    Trying to load font information for T1+zplOsF on input line 817.
- (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/newpx\t1zplosf.fd
+ (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/newpx\t1zplosf.fd
 File: t1zplosf.fd 2021/05/25 v1.0 font definition file for T1/zpl/osf
 )
 LaTeX Font Info:    Trying to load font information for T1+zplTOsF on input line 818.
- (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/newpx\t1zpltosf.fd
+ (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/newpx\t1zpltosf.fd
 File: t1zpltosf.fd 2021/05/25 v1.0 font definition file for T1/zpl/tosf
-)) (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/newpx\newpxmath.sty
+)) (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/newpx\newpxmath.sty
 Package: newpxmath 2025/10/30 v1.551 LaTeX math support for newpx (Michael Sharpe)
- `newpxmath' v1.551, 2025/10/30 Math macros based on pxfonts (msharpe) (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+ `newpxmath' v1.551, 2025/10/30 Math macros based on pxfonts (msharpe) (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
 Package: amsmath 2025/07/09 v2.17z AMS math features
 \@mathmargin=\skip51
 
 For additional information on amsmath, use the `?' option.
-(C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
 Package: amstext 2024/11/17 v2.01 AMS text
- (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
+ (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks21
 \ex@=\dimen182
-)) (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
+)) (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen183
-) (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
+) (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
 \inf@bad=\count297
@@ -248,7 +248,7 @@ LaTeX Info: Redefining \Relbar on input line 970.
 \mathdisplay@stack=\toks25
 LaTeX Info: Redefining \[ on input line 2950.
 LaTeX Info: Redefining \] on input line 2951.
-) (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/generic/binhex\binhex.tex) (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/oberdiek\centernot.sty
+) (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/generic/binhex\binhex.tex) (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/oberdiek\centernot.sty
 Package: centernot 2016/05/16 v1.4 Centers the not symbol horizontally (HO)
 )
 \px@tA=\toks26
@@ -364,16 +364,16 @@ LaTeX Font Info:    Redeclaring math accent \ddot on input line 574.
 LaTeX Font Info:    Redeclaring math accent \vec on input line 1631.
 LaTeX Info: Redefining \Bbbk on input line 2208.
 LaTeX Info: Redefining \not on input line 2548.
-) (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+) (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
 Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
 LaTeX Font Info:    Trying to load font information for T1+minzpl on input line 116.
- (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/newpx\t1minzpl.fd
+ (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/newpx\t1minzpl.fd
 File: t1minzpl.fd 2021/05/25 v1.0 font definition file for T1/minzpl/TLF
 )
 LaTeX Font Info:    Font shape `T1/minzpl/m/n' will be
 (Font)              scaled to size 12.0pt on input line 116.
-) (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
-Package: babel 2025/10/22 v25.14 The multilingual framework for LuaLaTeX, pdfLaTeX and XeLaTeX
+) (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
+Package: babel 2025/11/09 v25.15 The multilingual framework for LuaLaTeX, pdfLaTeX and XeLaTeX
 \babel@savecnt=\count312
 LaTeX Encoding Info:    Redeclaring text command \ij (encoding OT1) on input line 2050.
 LaTeX Encoding Info:    Redeclaring text command \IJ (encoding OT1) on input line 2052.
@@ -384,24 +384,22 @@ LaTeX Encoding Info:    Ignoring declaration for text command \IJ (encoding ?) o
 LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) on input line 2083.
 \U@D=\dimen191
 \l@unhyphenated=\language79
- (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
+ (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
 \bbl@readstream=\read3
 \bbl@dirlevel=\count313
-
-
-Package babel Warning: Configuration files are deprecated, as
-(babel)                they can break document portability.
-(babel)                Reported on input line 4172.
+Package babel Info: Configuration files are deprecated, as
+(babel)             they can break document portability.
+(babel)             Reported on input line 4175.
 
 *************************************
 * Local config file bblopts.cfg used
 *
-(C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.cfg
+(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.cfg
 File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of babel
-) (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/en\babel-english.tex)
+) (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/en\babel-english.tex)
 Package babel Info: Importing font and identification data for english
-(babel)             from babel-en.ini. Reported on input line 4295.
- (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/babel-english\english.ldf
+(babel)             from babel-en.ini. Reported on input line 4298.
+ (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/babel-english\english.ldf
 Language: english 2017/06/06 v3.3r English support from the babel system
 Package babel Info: Hyphen rules for 'canadian' set to \l@english
 (babel)             (\language0). Reported on input line 102.
@@ -409,159 +407,58 @@ Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
 (babel)             (\language73). Reported on input line 105.
 Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
 (babel)             (\language73). Reported on input line 108.
-)) (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty \lstset,
+)) (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
 \lst@mode=\count314
- 
-new hook `InitVars',
-
-new hook `EndGroup',
-
-new hook `ExitVars',
-
-new hook `ModeTrue',
-
-new hook `EOL',
 \lst@gtempboxa=\box55
 \lst@token=\toks29
 \lst@length=\count315
-
-new hook `InitVarsBOL',
 \lst@currlwidth=\dimen192
 \lst@column=\count316
 \lst@pos=\count317
 \lst@lostspace=\dimen193
 \lst@width=\dimen194
-basewidth, 
-new hook `FontAdjust',
-fontadjust, 
-new hook `PostOutput',
-
-new hook `OutputBox',
-
-new hook `InitBOL',
-columns, flexiblecolumns,
 \lst@newlines=\count318
- 
-new hook `OnNewLine',
-emptylines, 
-new hook `OnEmptyLine',
-identifierstyle, 
-new hook `EmptyStyle',
-
-new hook `OutputOther',
-
-new hook `Output',
-tabsize, showtabs, tab, showspaces, keepspaces, 
-new hook `Init',
-formfeed, upquote, SelectCharTable, MoreSelectCharTable, 
-new hook `SetLanguage',
-extendedchars, useoutput, rescanchars, alsoletter, alsodigit, alsoother, 
-new hook `SelectCharTable',
-excludedelims, delim, moredelim, deletedelim, literate, basicstyle, inputencoding, multicols, 
-new hook `EveryLine',
 \lst@lineno=\count319
-print, firstline, lastline, 
-new hook `PreSet',
-nolol, linerange, consecutivenumbers, rangeprefix, rangesuffix, rangebeginprefix, rangebeginsuffix, rangeendprefix, rangeendsuffix, includerangemarker, 
-new hook `DeInit',
-captionpos, abovecaptionskip, belowcaptionskip, label, title, caption, 
-new hook `TextStyle',
-\lstlistingname, \lstlistingnamestyle, numberbychapter, boxpos, float, floatplacement, aboveskip, belowskip, everydisplay, 
-new hook `DisplayStyle',
-
-new hook `PreInit',
-
-new hook `EveryPar',
-showlines,
 \lst@maxwidth=\dimen195
- 
-new hook `InitVarsEOL',
-gobble, name, \lstlistlistingname, \lstlistoflistings, inputpath, \lstnewenvironment, fancyvrb, (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstpatch.sty
-File: lstpatch.sty 2025/10/06 1.11 (Carsten Heinz)
-) (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
-File: lstmisc.sty 2025/10/06 1.11 (Carsten Heinz)
- 
-Define lst-aspect `strings': string, morestring, deletestring, stringstyle, showstringspaces, 
-new hook `ExcludeDelims',
-
-Allocs: none
-
-Define lst-aspect `comments': comment, morecomment, deletecomment, commentstyle, 
-new hook `AfterBeginComment',
-
-Allocs: none
-
-Define lst-aspect `escape': texcl, escapebegin, escapeend, escapechar, escapeinside, mathescape, 
-Allocs: none
-
-Define lst-aspect `keywords': sensitive, 
-new hook `TrackKeywords',
-
-new hook `PostTrackKeywords',
-
-new hook `DetectKeywords',
-classoffset, keywords, morekeywords, deletekeywords, keywordstyle, keywordstyle, ndkeywords, morendkeywords, deletendkeywords, ndkeywordstyle, keywordsprefix, otherkeywords, 
-Allocs: none
-
-Define lst-aspect `emph': emph, moreemph, deleteemph, emphstyle, 
-Allocs: none
-
-Define lst-aspect `index': index, moreindex, deleteindex, indexstyle, \lstindexmacro, 
-Allocs: none
-
-Define lst-aspect `style': \lststylefiles, \lstdefinestyle, \lst@definestyle, style, 
-new hook `SetStyle',
-
-Allocs: none
-
-Define lst-aspect `language': \lstlanguagefiles, \lstdefinelanguage, \lst@definelanguage, language, alsolanguage, \lstalias, defaultdialect, 
-Allocs: none
-
-Define lst-aspect `labels': numbers, stepnumber, numberfirstline, numberstyle, numbersep, numberblanklines, firstnumber,
+ (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstpatch.sty
+File: lstpatch.sty 2025/11/14 1.11b (Carsten Heinz)
+) (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
+File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
 \c@lstnumber=\count320
 \lst@skipnumbers=\count321
- 
-Allocs: 2\count, 
-
-Define lst-aspect `lineshape': xleftmargin, xrightmargin, resetmargins, 
-new hook `BoxUnsafe',
-linewidth, lineskip, breaklines, breakindent, breakautoindent, breakatwhitespace, prebreak, postbreak, 
-Allocs: none
-
-Define lst-aspect `frames': framexleftmargin, framexrightmargin, framextopmargin, framexbottommargin, backgroundcolor, fillcolor, rulecolor, rulesepcolor, rulesep, framerule, framesep, frameshape, frameround, frame,
 \lst@framebox=\box56
- 
-Allocs: 1\box, 
-) 
-Allocs: 8\count, 4\dimen, 2\box, 1\toks, 
-(C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
-File: listings.cfg 2025/10/06 1.11 listings configuration
+) (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
+File: listings.cfg 2025/11/14 1.11b listings configuration
 ))
-Package: listings 2025/10/06 1.11 (Carsten Heinz)
+Package: listings 2025/11/14 1.11b (Carsten Heinz)
 
 ==> First Aid for listings.sty no longer applied!
     Expected:
         2024/09/23 1.10c (Carsten Heinz)
     but found:
-        2025/10/06 1.11 (Carsten Heinz)
+        2025/11/14 1.11b (Carsten Heinz)
     so I'm assuming it got fixed.
-(C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/inconsolata\inconsolata.sty
+(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/inconsolata\inconsolata.sty
 Package: inconsolata 2019/05/17 v1.12
  `inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe)
 \zifour@ocount=\count322
-) (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/eso-pic\eso-pic.sty
+) (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/eso-pic\eso-pic.sty
 Package: eso-pic 2023/05/03 v3.0c eso-pic (RN)
 \ESO@tempdima=\dimen196
 \ESO@tempdimb=\dimen197
 )
 LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
 (Font)              scaled to size 12.0pt on input line 94.
- (main_report.aux)
+ (main_report.aux
+
+LaTeX Warning: Label `fig:02_blockDiagram' multiply defined.
+
+)
 \openout1 = `main_report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/npxmi/m/it on input line 94.
 LaTeX Font Info:    Trying to load font information for OML+npxmi on input line 94.
- (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/newpx\omlnpxmi.fd
+ (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/newpx\omlnpxmi.fd
 File: omlnpxmi.fd 2013/03/21 Fontinst v1.933 font definitions for OML/npxmi.
 )
 LaTeX Font Info:    ... okay on input line 94.
@@ -577,23 +474,23 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 94.
 LaTeX Font Info:    ... okay on input line 94.
 LaTeX Font Info:    Checking defaults for U/npxexa/m/n on input line 94.
 LaTeX Font Info:    Trying to load font information for U+npxexa on input line 94.
- (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/newpx\unpxexa.fd
+ (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/newpx\unpxexa.fd
 File: unpxexa.fd 2013/03/24 Fontinst v1.933 font definitions for U/npxexa.
 )
 LaTeX Font Info:    ... okay on input line 94.
 LaTeX Font Info:    Checking defaults for LMS/npxsy/m/n on input line 94.
 LaTeX Font Info:    Trying to load font information for LMS+npxsy on input line 94.
- (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/newpx\lmsnpxsy.fd
+ (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/newpx\lmsnpxsy.fd
 File: lmsnpxsy.fd 2016/07/04 Fontinst v1.933 font definitions for LMS/npxsy.
 )
 LaTeX Font Info:    ... okay on input line 94.
 LaTeX Font Info:    Checking defaults for LMX/npxexx/m/n on input line 94.
 LaTeX Font Info:    Trying to load font information for LMX+npxexx on input line 94.
- (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/newpx\lmxnpxexx.fd
+ (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/newpx\lmxnpxexx.fd
 File: lmxnpxexx.fd 2016/07/04 Fontinst v1.933 font definitions for LMX/npxexx.
 )
 LaTeX Font Info:    ... okay on input line 94.
- (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+ (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count323
 \scratchdimen=\dimen198
@@ -606,10 +503,10 @@ LaTeX Font Info:    ... okay on input line 94.
 \MPnumerator=\count327
 \makeMPintoPDFobject=\count328
 \everyMPtoPDFconversion=\toks31
-) (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
+) (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
- (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
+ (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package caption Info: Begin \AtBeginDocument code.
@@ -655,7 +552,7 @@ Package caption Info: End \AtBeginDocument code.
 LaTeX Info: Command `\dddot' is already robust on input line 94.
 LaTeX Info: Command `\ddddot' is already robust on input line 94.
 \c@lstlisting=\count331
-(C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/upquote\upquote.sty
+(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/upquote\upquote.sty
 Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbatim
 ) (chapter/00_frontmatter.tex
 *geometry* verbose mode - [ newgeometry ] result:
@@ -707,7 +604,7 @@ LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
 LaTeX Font Info:    Font shape `T1/zpltlf/b/n' will be
 (Font)              scaled to size 20.74pt on input line 30.
 LaTeX Font Info:    Trying to load font information for OT1+minzpl on input line 34.
- (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/newpx\ot1minzpl.fd
+ (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/newpx\ot1minzpl.fd
 File: ot1minzpl.fd 2021/05/25 v1.0 font definition file for OT1/minzpl/TLF
 )
 LaTeX Font Info:    Font shape `OT1/minzpl/m/n' will be
@@ -717,15 +614,15 @@ LaTeX Font Info:    Font shape `OT1/minzpl/m/n' will be
 LaTeX Font Info:    Font shape `OT1/minzpl/m/n' will be
 (Font)              scaled to size 6.6pt on input line 34.
 LaTeX Font Info:    Trying to load font information for U+npxmia on input line 34.
- (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/newpx\unpxmia.fd
+ (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/newpx\unpxmia.fd
 File: unpxmia.fd 2013/03/24 Fontinst v1.933 font definitions for U/npxmia.
 )
 LaTeX Font Info:    Trying to load font information for U+npxsym on input line 34.
- (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/newpx\unpxsym.fd
+ (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/newpx\unpxsym.fd
 File: unpxsym.fd 2023/08/16 Fontinst v1.933 font definitions for U/npxsym.
 )
 LaTeX Font Info:    Trying to load font information for U+npxsyc on input line 34.
- (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/newpx\unpxsyc.fd
+ (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/newpx\unpxsyc.fd
 File: unpxsyc.fd 2013/03/24 Fontinst v1.933 font definitions for U/npxsyc.
 )
 LaTeX Font Info:    Font shape `T1/zpltlf/b/n' will be
@@ -738,7 +635,7 @@ Package pdftex.def Info: figures/frontmatter/unipdbg.pdf  used on input line 46.
  [1
 
 
-{C:/Users/banom/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}{C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ec-tlf.enc} <./figures/frontmatter/unipdbg.pdf> <./figures/frontmatter/0_logo_dei.pdf> <./figures/frontmatter/0_logo_unipd.pdf>]) [2
+{C:/Users/nicol/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}{C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ec-tlf.enc} <./figures/frontmatter/unipdbg.pdf> <./figures/frontmatter/0_logo_dei.pdf> <./figures/frontmatter/0_logo_unipd.pdf>]) [2
 
 
 ] (chapter/00_abstract.tex) [1] [2
@@ -771,7 +668,7 @@ Package pdftex.def Info: figures/01_introduction/esp32.jpg  used on input line 4
 
 ]
 LaTeX Font Info:    Trying to load font information for TS1+zpltlf on input line 57.
- (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/newpx\ts1zpltlf.fd
+ (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/newpx\ts1zpltlf.fd
 File: ts1zpltlf.fd 2021/11/24 v1.0 fd file for TS1/zpltlf
 )
 LaTeX Font Info:    Font shape `TS1/zpltlf/m/n' will be
@@ -785,7 +682,7 @@ LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
 (Font)              scaled to size 14.4pt on input line 76.
 LaTeX Font Info:    Font shape `T1/zpltlf/b/n' will be
 (Font)              scaled to size 14.4pt on input line 76.
- [2{C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newpx/zpl_TOsF.enc}{C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newpx/px-lms.enc}{C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc} <./figures/01_introduction/esp32.jpg> <./figures/01_introduction/mpu6050.jpg>]
+ [2{C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newpx/zpl_TOsF.enc}{C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newpx/px-lms.enc}{C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc} <./figures/01_introduction/esp32.jpg> <./figures/01_introduction/mpu6050.jpg>]
 <figures/01_introduction/dcMotor.jpg, id=58, 1565.85pt x 1043.9pt>
 File: figures/01_introduction/dcMotor.jpg Graphic file (type jpg)
 <use figures/01_introduction/dcMotor.jpg>
@@ -794,7 +691,7 @@ Package pdftex.def Info: figures/01_introduction/dcMotor.jpg  used on input line
 <figures/01_introduction/drv8833.jpeg, id=59, 722.7pt x 722.7pt>
 File: figures/01_introduction/drv8833.jpeg Graphic file (type jpg)
 <use figures/01_introduction/drv8833.jpeg>
-Package pdftex.def Info: figures/01_introduction/drv8833.jpeg  used on input line 96.
+Package pdftex.def Info: figures/01_introduction/drv8833.jpeg  used on input line 97.
 (pdftex.def)             Requested size: 273.14923pt x 273.15117pt.
 ) [3 <./figures/01_introduction/dcMotor.jpg> <./figures/01_introduction/drv8833.jpeg>] [4
 
@@ -815,8 +712,8 @@ File: figures/02_modelling/blockDiagram.pdf Graphic file (type pdf)
 <use figures/02_modelling/blockDiagram.pdf>
 Package pdftex.def Info: figures/02_modelling/blockDiagram.pdf  used on input line 86.
 (pdftex.def)             Requested size: 318.66948pt x 61.47385pt.
- [6 <./figures/02_modelling/blockDiagram.pdf>] (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
-File: lstlang1.sty 2025/10/06 1.11 listings language file
+ [6 <./figures/02_modelling/blockDiagram.pdf>] (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2025/11/14 1.11b listings language file
 )
 LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
 (Font)              scaled to size 6.0pt on input line 107.
@@ -837,46 +734,68 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 ) [7] [8 <./figures/02_modelling/Step response of the closed loop system.pdf>] (chapter/03_control.tex
 Chapter 3.
-(C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
-File: lstlang1.sty 2025/10/06 1.11 listings language file
-) (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
-File: lstmisc.sty 2025/10/06 1.11 (Carsten Heinz)
- 
-Define lst-aspect `directives': directives, moredirectives, deletedirectives, directivestyle, 
-Allocs: none
+<figures/03_control/03_simplified_system.pdf, id=157, 490.2314pt x 81.20337pt>
+File: figures/03_control/03_simplified_system.pdf Graphic file (type pdf)
+<use figures/03_control/03_simplified_system.pdf>
+Package pdftex.def Info: figures/03_control/03_simplified_system.pdf  used on input line 11.
+(pdftex.def)             Requested size: 318.66948pt x 52.7865pt.
+[9
+
+
+ <./figures/03_control/03_simplified_system.pdf>]
+<figures/03_control/03_angle_estimation.pdf, id=202, 369.7815pt x 92.7485pt>
+File: figures/03_control/03_angle_estimation.pdf Graphic file (type pdf)
+<use figures/03_control/03_angle_estimation.pdf>
+Package pdftex.def Info: figures/03_control/03_angle_estimation.pdf  used on input line 52.
+(pdftex.def)             Requested size: 318.66948pt x 79.9348pt.
+ (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2025/11/14 1.11b listings language file
+) (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
+File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
 )
-LaTeX Font Info:    Trying to load font information for T1+zi4 on input line 11.
- (C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/inconsolata\t1zi4.fd
+LaTeX Font Info:    Trying to load font information for T1+zi4 on input line 60.
+ (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/inconsolata\t1zi4.fd
 File: t1zi4.fd 2018/01/14 T1/zi4 (Inconsolata)
 )
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 11.39996pt on input line 11.
+(Font)              scaled to size 11.39996pt on input line 60.
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 9.49997pt on input line 11.
+(Font)              scaled to size 9.49997pt on input line 60.
 LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
-(Font)              scaled to size 10.0pt on input line 12.
- [9
-
-
-{C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/inconsolata/i4-t1-0.enc}] [10]
+(Font)              scaled to size 10.0pt on input line 61.
+ [10{C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/inconsolata/i4-t1-0.enc} <./figures/03_control/03_angle_estimation.pdf>]
+<figures/03_control/03_state_machine.pdf, id=240, 337.6625pt x 225.2415pt>
+File: figures/03_control/03_state_machine.pdf Graphic file (type pdf)
+<use figures/03_control/03_state_machine.pdf>
+Package pdftex.def Info: figures/03_control/03_state_machine.pdf  used on input line 121.
+(pdftex.def)             Requested size: 318.66948pt x 212.5725pt.
+ [11]
 LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
-(Font)              scaled to size 8.8pt on input line 90.
+(Font)              scaled to size 8.8pt on input line 144.
 LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
-(Font)              scaled to size 6.6pt on input line 90.
- [11] [12]) [13] [14
-
-] (chapter/04_physicalImplem.tex
+(Font)              scaled to size 6.6pt on input line 144.
+ [12 <./figures/03_control/03_state_machine.pdf>] [13]) [14] (chapter/04_physicalImplem.tex
 Chapter 4.
+<figures/04_implementation/jamal_01.png, id=276, 4015.0pt x 1854.93pt>
+File: figures/04_implementation/jamal_01.png Graphic file (type png)
+<use figures/04_implementation/jamal_01.png>
+Package pdftex.def Info: figures/04_implementation/jamal_01.png  used on input line 11.
+(pdftex.def)             Requested size: 318.66948pt x 147.20866pt.
+<figures/04_implementation/tires.jpg, id=278, 4015.0pt x 1854.93pt>
+File: figures/04_implementation/tires.jpg Graphic file (type jpg)
+<use figures/04_implementation/tires.jpg>
+Package pdftex.def Info: figures/04_implementation/tires.jpg  used on input line 20.
+(pdftex.def)             Requested size: 318.66948pt x 147.20866pt.
 
-LaTeX Warning: Reference `' on page 15 undefined on input line 9.
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-) [15
+[15
 
-] [16
 
-] (chapter/05_coclusions.tex
+ <./figures/04_implementation/jamal_01.png>]) [16 <./figures/04_implementation/tires.jpg>] (chapter/05_coclusions.tex
 Chapter 5.
 ) [17
+
 
 ] [18
 
@@ -919,8 +838,8 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 ]
 Appendix B.
-(C:\Users\banom\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
-File: lstlang1.sty 2025/10/06 1.11 listings language file
+(C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2025/11/14 1.11b listings language file
 )
 Underfull \vbox (badness 2856) has occurred while \output is active []
 
@@ -1006,21 +925,21 @@ L3 programming layer <2020/03/25>
  ***********
 
 
-LaTeX Warning: There were undefined references.
+LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 13312 strings out of 467871
- 210039 string characters out of 5418375
- 1120895 words of memory out of 5000000
- 41956 multiletter control sequences out of 15000+600000
+ 13349 strings out of 467871
+ 209917 string characters out of 5418375
+ 1122051 words of memory out of 5000000
+ 41993 multiletter control sequences out of 15000+600000
  692287 words of font info for 97 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 74i,10n,97p,745b,1850s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\banom\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb><C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI.pfb><C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI_gnu.pfb><C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxmiaX.pfb><C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxsys.pfb><C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txexs.pfb><C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplb.pfb><C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplr.pfb><C:/Users/banom/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplri.pfb>
-Output written on main_report.pdf (38 pages, 1156631 bytes).
+ 74i,10n,97p,631b,1764s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\nicol\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI.pfb><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI_gnu.pfb><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxmiaX.pfb><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxsys.pfb><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txexs.pfb><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplb.pfb><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplr.pfb><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplri.pfb>
+Output written on main_report.pdf (38 pages, 7574442 bytes).
 PDF statistics:
- 290 PDF objects out of 1000 (max. 8388607)
+ 393 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 51 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 76 words of extra memory for PDF output out of 10000 (max. 10000000)
 

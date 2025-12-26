@@ -50,33 +50,50 @@
 \@writefile{lot}{\addvspace {10\p@ }}
 \newlabel{chap_03:control}{{3}{9}{}{chapter.3}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {3.1}High Level System Description}{9}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Finite State Machine}{9}{}\protected@file@percent }
-\newlabel{lst:03_FSM_definition}{{3.1}{9}{}{lstlisting.3.1}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {3.1}{\ignorespaces FSM definition}}{9}{}\protected@file@percent }
-\newlabel{lst:03_FSM_loop}{{3.2}{10}{}{lstlisting.3.2}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {3.2}{\ignorespaces FSM Working Principle}}{10}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}Timing Constraints}{10}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}Hardware Interrupt}{10}{}\protected@file@percent }
-\newlabel{lst:03_interrupt_setup}{{3.3}{11}{}{lstlisting.3.3}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {3.3}{\ignorespaces Interrupt Setup}}{11}{}\protected@file@percent }
-\newlabel{lst:03_isr}{{3.4}{11}{}{lstlisting.3.4}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {3.4}{\ignorespaces Hardware ISR}}{11}{}\protected@file@percent }
-\newlabel{lst:03_tick_main_loop}{{3.5}{11}{}{lstlisting.3.5}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {3.5}{\ignorespaces Tick Flag use in Loop}}{11}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}Adaptive Window Size}{12}{}\protected@file@percent }
-\newlabel{eq:03_gyro_continuous}{{3.3}{12}{}{equation.3.3}{}}
-\newlabel{eq:03_gyro_discrete}{{3.4}{12}{}{equation.3.4}{}}
-\newlabel{eq:03_gyro_adaptive}{{3.5}{12}{}{equation.3.5}{}}
-\newlabel{lst:03_adaptive_window_size}{{3.6}{12}{}{lstlisting.3.6}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {3.6}{\ignorespaces Adaptive Window Size}}{12}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.3}Serial Output Buffering}{12}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Simplified block diagram of the control structure}}{9}{}\protected@file@percent }
+\newlabel{fig:03_high_level_system}{{3.1}{9}{}{figure.3.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Angle Measurement}{9}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Accelerometer Derived Angle}{9}{}\protected@file@percent }
+\newlabel{eq:03_accelerometer_angle}{{3.1}{9}{}{equation.3.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Gyroscope Data}{10}{}\protected@file@percent }
+\newlabel{eq:03_gyroscope_angle}{{3.2}{10}{}{equation.3.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}Complementary Filter}{10}{}\protected@file@percent }
+\newlabel{eq:03_fusion_angle}{{3.3}{10}{}{equation.3.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Block diagram of the angle measurement}}{10}{}\protected@file@percent }
+\newlabel{fig:02_blockDiagram}{{3.2}{10}{}{figure.3.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}Finite State Machine}{10}{}\protected@file@percent }
+\newlabel{lst:03_FSM_definition}{{3.1}{10}{}{lstlisting.3.1}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {3.1}{\ignorespaces FSM definition}}{10}{}\protected@file@percent }
+\newlabel{lst:03_FSM_loop}{{3.2}{11}{}{lstlisting.3.2}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {3.2}{\ignorespaces FSM Working Principle}}{11}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Block diagram of the state machine}}{12}{}\protected@file@percent }
+\newlabel{fig:03_state_machine}{{3.3}{12}{}{figure.3.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}Timing Constraints}{12}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.1}Hardware Interrupt}{12}{}\protected@file@percent }
+\newlabel{lst:03_interrupt_setup}{{3.3}{12}{}{lstlisting.3.3}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {3.3}{\ignorespaces Interrupt Setup}}{12}{}\protected@file@percent }
+\newlabel{lst:03_isr}{{3.4}{13}{}{lstlisting.3.4}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {3.4}{\ignorespaces Hardware ISR}}{13}{}\protected@file@percent }
+\newlabel{lst:03_tick_main_loop}{{3.5}{13}{}{lstlisting.3.5}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {3.5}{\ignorespaces Tick Flag use in Loop}}{13}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.2}Adaptive Window Size}{13}{}\protected@file@percent }
+\newlabel{eq:03_gyro_continuous}{{3.6}{13}{}{equation.3.6}{}}
+\newlabel{eq:03_gyro_discrete}{{3.7}{14}{}{equation.3.7}{}}
+\newlabel{eq:03_gyro_adaptive}{{3.8}{14}{}{equation.3.8}{}}
+\newlabel{lst:03_adaptive_window_size}{{3.6}{14}{}{lstlisting.3.6}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {3.6}{\ignorespaces Adaptive Window Size}}{14}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.3}Serial Output Buffering}{14}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {chapter}{\numberline {4}Physical Implementation}{15}{}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \newlabel{chap_04:physicalImplem}{{4}{15}{}{chapter.4}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.0.1}Mechanical structure}{15}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.0.2}PID adjustment}{15}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.0.3}Other adjustment}{15}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Robot}}{15}{}\protected@file@percent }
+\newlabel{fig:04_robot_strucuture}{{4.1}{15}{}{figure.4.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.0.2}PID adjustments}{15}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Different tire geometries tried for the robot. Left to right for lower infill density and higher friction coefficient}}{16}{}\protected@file@percent }
+\newlabel{fig:04_tires}{{4.2}{16}{}{figure.4.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.0.3}Other adjustments}{16}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {chapter}{\numberline {5}Conclusions}{17}{}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
