@@ -73,6 +73,45 @@ considering also the gear ratio $K_G = 120$ we obtain:
 
 The obtained transfer function is a first order system.
 
+\subsection{Motor Parameter Measurements}
+Since the motor is quite small and works at low current, we can expect the armature resistance to be high enough that it can be measured reliably with a multimeter (figure \ref{fig:02_resistance_measurement_setup}).
+For completeness, the result was checked with a four-wire measurement method, applying a constant current with a lab bench power supply and measuring the voltage across the motor terminals.
+As expected, results from the two methods were consistent, so we used the found resistance $ R = 3.5 \Omega $ in our model.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.70\linewidth]{figures/02_modelling/motor_parasitics_resistance.pdf}
+    \caption{Block diagram of the resistance measurement setup}
+\label{fig:02_resistance_measurement_setup}
+\end{figure}
+
+Measuring the inductance can be done in different ways. We opted for a simple an practical solution making use of an oscilloscope and a waveform generator with a $50 \Omega$ output. In figure \ref{fig:02_inductance_measurement_setup} the setup is shown, considering a simple approximation of the DC motor parasitics. Note that the back EMF generator is not reported in this schematic as the signal from the generator is not capable of moving the rotor..
+Firstly, we set up the generator in square-wave mode, with an arbitrary amplitude of $ 1 Vpp$, wide enough to see it clearly on the oscillscope. Since the generator has a $50 \Omega$ output, we expect to se a waveform of $ 2 Vpp$ on the oscilloscope when the motor is disconnected.
+
+The frequency for this test must be chosen so that a proper step response can be seen. What we are interested in is the inductive behaviour, that here is recognized in the time it takes for the voltage to decay to its steady state value after the initial peak. 
+The resulting capture, seen in figure \ref{fig:02_inductance_measurement}, can be fitted numerically on an exponential curve and the result of $50 \mu H$ is computed.
+\begin{figure}[h]
+    \begin{subfigure}{.5\textwidth}
+        \centering
+        \includegraphics[width=0.90\linewidth]{figures/02_modelling/inductance_measurement_twoperiods.eps}
+        \caption{Rise and fall response of the motor parasitics}
+    \end{subfigure}
+    \begin{subfigure}{.5\textwidth}
+        \centering
+        \includegraphics[width=0.90\linewidth]{figures/02_modelling/inductance_measurement.eps}
+        \caption{Curve to fit to find inductace}
+    \end{subfigure}
+    \caption{Inductance measurement waveform}
+\label{fig:02_inductance_measurement}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.70\linewidth]{figures/02_modelling/motor_parasitics_oscilloscope.pdf}
+    \caption{Block diagram of the inductance measurement setup}
+\label{fig:02_inductance_measurement_setup}
+\end{figure}
+
 \section{Complete model}
 
 The complete model is the product of the two transfer functions obtained: we have to consider

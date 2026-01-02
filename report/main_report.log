@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.16)  27 DEC 2025 00:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.16)  2 JAN 2026 20:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -645,15 +645,13 @@ LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
 (Font)              scaled to size 24.88pt on input line 106.
 LaTeX Font Info:    Font shape `T1/zpltlf/b/n' will be
 (Font)              scaled to size 24.88pt on input line 106.
- (main_report.toc)
+ (main_report.toc [3
+
+])
 \tf@toc=\write3
 \openout3 = `main_report.toc'.
 
- [3
-
-] [4
-
-] (chapter/01_introduction.tex
+ [4] (chapter/01_introduction.tex
 Chapter 1.
 LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
 (Font)              scaled to size 17.28pt on input line 25.
@@ -665,6 +663,7 @@ File: figures/01_introduction/esp32.jpg Graphic file (type jpg)
 Package pdftex.def Info: figures/01_introduction/esp32.jpg  used on input line 40.
 (pdftex.def)             Requested size: 136.57462pt x 136.57558pt.
 [1
+
 
 ]
 LaTeX Font Info:    Trying to load font information for TS1+zpltlf on input line 57.
@@ -707,43 +706,92 @@ Package pdftex.def Info: figures/01_introduction/inverse_pendulum.pdf  used on i
 [5
 
  <./figures/01_introduction/inverse_pendulum.pdf>]
-<figures/02_modelling/blockDiagram.pdf, id=88, 211.5895pt x 40.81247pt>
-File: figures/02_modelling/blockDiagram.pdf Graphic file (type pdf)
-<use figures/02_modelling/blockDiagram.pdf>
-Package pdftex.def Info: figures/02_modelling/blockDiagram.pdf  used on input line 86.
-(pdftex.def)             Requested size: 318.66948pt x 61.47385pt.
- [6 <./figures/02_modelling/blockDiagram.pdf>] (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
-File: lstlang1.sty 2025/11/14 1.11b listings language file
-)
-LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
-(Font)              scaled to size 6.0pt on input line 107.
-LaTeX Info: Symbol \textminus not provided by
-            font family zpltlf in TS1 encoding.
-            Default family used instead on input line 108.
-LaTeX Info: Symbol \textminus not provided by
-            font family zpltlf in TS1 encoding.
-            Default family used instead on input line 114.
-<figures/02_modelling/Step response of the closed loop system.pdf, id=129, 701.62125pt x 464.73625pt>
-File: figures/02_modelling/Step response of the closed loop system.pdf Graphic file (type pdf)
-<use figures/02_modelling/Step response of the closed loop system.pdf>
-Package pdftex.def Info: figures/02_modelling/Step response of the closed loop system.pdf  used on input line 138.
-(pdftex.def)             Requested size: 409.71692pt x 271.39095pt.
+<figures/02_modelling/motor_parasitics_resistance.pdf, id=88, 210.74736pt x 80.35822pt>
+File: figures/02_modelling/motor_parasitics_resistance.pdf Graphic file (type pdf)
+<use figures/02_modelling/motor_parasitics_resistance.pdf>
+Package pdftex.def Info: figures/02_modelling/motor_parasitics_resistance.pdf  used on input line 83.
+(pdftex.def)             Requested size: 318.66948pt x 121.52408pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) [7] [8 <./figures/02_modelling/Step response of the closed loop system.pdf>] (chapter/03_control.tex
+[6]
+Package epstopdf Info: Source file: <figures/02_modelling/inductance_measurement_twoperiods.eps>
+(epstopdf)                    date: 2026-01-02 20:33:15
+(epstopdf)                    size: 33084 bytes
+(epstopdf)             Output file: <figures/02_modelling/inductance_measurement_twoperiods-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-01-02 20:35:28
+(epstopdf)                    size: 12314 bytes
+(epstopdf)             Command: <miktex-epstopdf --outfile=figures/02_modelling/inductance_measurement_twoperiods-eps-converted-to.pdf figures/02_modelling/inductance_measurement_twoperiods.eps>
+(epstopdf)             \includegraphics on input line 96.
+Package epstopdf Info: Output file is already uptodate.
+<figures/02_modelling/inductance_measurement_twoperiods-eps-converted-to.pdf, id=93, 370.38374pt x 236.885pt>
+File: figures/02_modelling/inductance_measurement_twoperiods-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/02_modelling/inductance_measurement_twoperiods-eps-converted-to.pdf>
+Package pdftex.def Info: figures/02_modelling/inductance_measurement_twoperiods-eps-converted-to.pdf  used on input line 96.
+(pdftex.def)             Requested size: 204.85846pt x 131.0209pt.
+LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
+(Font)              scaled to size 10.95pt on input line 97.
+Package epstopdf Info: Source file: <figures/02_modelling/inductance_measurement.eps>
+(epstopdf)                    date: 2026-01-02 19:07:57
+(epstopdf)                    size: 33982 bytes
+(epstopdf)             Output file: <figures/02_modelling/inductance_measurement-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-01-02 19:11:20
+(epstopdf)                    size: 12329 bytes
+(epstopdf)             Command: <miktex-epstopdf --outfile=figures/02_modelling/inductance_measurement-eps-converted-to.pdf figures/02_modelling/inductance_measurement.eps>
+(epstopdf)             \includegraphics on input line 101.
+Package epstopdf Info: Output file is already uptodate.
+<figures/02_modelling/inductance_measurement-eps-converted-to.pdf, id=94, 370.38374pt x 236.885pt>
+File: figures/02_modelling/inductance_measurement-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/02_modelling/inductance_measurement-eps-converted-to.pdf>
+Package pdftex.def Info: figures/02_modelling/inductance_measurement-eps-converted-to.pdf  used on input line 101.
+(pdftex.def)             Requested size: 204.85846pt x 131.0209pt.
+
+Overfull \hbox (1.79993pt too wide) in paragraph at lines 94--104
+[][] [] 
+ []
+
+<figures/02_modelling/motor_parasitics_oscilloscope.pdf, id=95, 230.20003pt x 76.34322pt>
+File: figures/02_modelling/motor_parasitics_oscilloscope.pdf Graphic file (type pdf)
+<use figures/02_modelling/motor_parasitics_oscilloscope.pdf>
+Package pdftex.def Info: figures/02_modelling/motor_parasitics_oscilloscope.pdf  used on input line 110.
+(pdftex.def)             Requested size: 318.66948pt x 105.68803pt.
+[7 <./figures/02_modelling/motor_parasitics_resistance.pdf> <./figures/02_modelling/inductance_measurement_twoperiods-eps-converted-to.pdf> <./figures/02_modelling/inductance_measurement-eps-converted-to.pdf> <./figures/02_modelling/motor_parasitics_oscilloscope.pdf>]
+<figures/02_modelling/blockDiagram.pdf, id=189, 211.5895pt x 40.81247pt>
+File: figures/02_modelling/blockDiagram.pdf Graphic file (type pdf)
+<use figures/02_modelling/blockDiagram.pdf>
+Package pdftex.def Info: figures/02_modelling/blockDiagram.pdf  used on input line 125.
+(pdftex.def)             Requested size: 318.66948pt x 61.47385pt.
+ (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2025/11/14 1.11b listings language file
+)
+LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
+(Font)              scaled to size 6.0pt on input line 146.
+LaTeX Info: Symbol \textminus not provided by
+            font family zpltlf in TS1 encoding.
+            Default family used instead on input line 147.
+LaTeX Info: Symbol \textminus not provided by
+            font family zpltlf in TS1 encoding.
+            Default family used instead on input line 153.
+ [8 <./figures/02_modelling/blockDiagram.pdf>]
+<figures/02_modelling/Step response of the closed loop system.pdf, id=230, 701.62125pt x 464.73625pt>
+File: figures/02_modelling/Step response of the closed loop system.pdf Graphic file (type pdf)
+<use figures/02_modelling/Step response of the closed loop system.pdf>
+Package pdftex.def Info: figures/02_modelling/Step response of the closed loop system.pdf  used on input line 177.
+(pdftex.def)             Requested size: 409.71692pt x 271.39095pt.
+) [9 <./figures/02_modelling/Step response of the closed loop system.pdf>] [10
+
+] (chapter/03_control.tex
 Chapter 3.
-<figures/03_control/03_simplified_system.pdf, id=157, 490.2314pt x 81.20337pt>
+<figures/03_control/03_simplified_system.pdf, id=256, 490.2314pt x 81.20337pt>
 File: figures/03_control/03_simplified_system.pdf Graphic file (type pdf)
 <use figures/03_control/03_simplified_system.pdf>
 Package pdftex.def Info: figures/03_control/03_simplified_system.pdf  used on input line 11.
 (pdftex.def)             Requested size: 318.66948pt x 52.7865pt.
-[9
-
+[11
 
  <./figures/03_control/03_simplified_system.pdf>]
-<figures/03_control/03_angle_estimation.pdf, id=202, 369.7815pt x 92.7485pt>
+<figures/03_control/03_angle_estimation.pdf, id=301, 369.7815pt x 92.7485pt>
 File: figures/03_control/03_angle_estimation.pdf Graphic file (type pdf)
 <use figures/03_control/03_angle_estimation.pdf>
 Package pdftex.def Info: figures/03_control/03_angle_estimation.pdf  used on input line 52.
@@ -763,25 +811,25 @@ LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
 (Font)              scaled to size 9.49997pt on input line 60.
 LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
 (Font)              scaled to size 10.0pt on input line 61.
- [10{C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/inconsolata/i4-t1-0.enc} <./figures/03_control/03_angle_estimation.pdf>]
-<figures/03_control/03_state_machine.pdf, id=240, 337.6625pt x 225.2415pt>
+ [12{C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/inconsolata/i4-t1-0.enc} <./figures/03_control/03_angle_estimation.pdf>]
+<figures/03_control/03_state_machine.pdf, id=339, 337.6625pt x 225.2415pt>
 File: figures/03_control/03_state_machine.pdf Graphic file (type pdf)
 <use figures/03_control/03_state_machine.pdf>
 Package pdftex.def Info: figures/03_control/03_state_machine.pdf  used on input line 121.
 (pdftex.def)             Requested size: 318.66948pt x 212.5725pt.
- [11]
+ [13]
 LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
 (Font)              scaled to size 8.8pt on input line 144.
 LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
 (Font)              scaled to size 6.6pt on input line 144.
- [12 <./figures/03_control/03_state_machine.pdf>] [13]) [14] (chapter/04_physicalImplem.tex
+ [14 <./figures/03_control/03_state_machine.pdf>] [15]) [16] (chapter/04_physicalImplem.tex
 Chapter 4.
-<figures/04_implementation/jamal_01.png, id=276, 4015.0pt x 1854.93pt>
+<figures/04_implementation/jamal_01.png, id=375, 4015.0pt x 1854.93pt>
 File: figures/04_implementation/jamal_01.png Graphic file (type png)
 <use figures/04_implementation/jamal_01.png>
 Package pdftex.def Info: figures/04_implementation/jamal_01.png  used on input line 11.
 (pdftex.def)             Requested size: 318.66948pt x 147.20866pt.
-<figures/04_implementation/tires.jpg, id=278, 4015.0pt x 1854.93pt>
+<figures/04_implementation/tires.jpg, id=377, 4015.0pt x 1854.93pt>
 File: figures/04_implementation/tires.jpg Graphic file (type jpg)
 <use figures/04_implementation/tires.jpg>
 Package pdftex.def Info: figures/04_implementation/tires.jpg  used on input line 20.
@@ -789,15 +837,15 @@ Package pdftex.def Info: figures/04_implementation/tires.jpg  used on input line
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[15
+[17
 
 
- <./figures/04_implementation/jamal_01.png>]) [16 <./figures/04_implementation/tires.jpg>] (chapter/05_coclusions.tex
+ <./figures/04_implementation/jamal_01.png>]) [18 <./figures/04_implementation/tires.jpg>] (chapter/05_coclusions.tex
 Chapter 5.
-) [17
+) [19
 
 
-] [18
+] [20
 
 ] (chapter/ZZ_appendixCoding.tex
 Appendix A.
@@ -819,7 +867,7 @@ LaTeX Info: Symbol \textminus not provided by
 
 Underfull \vbox (badness 1460) has occurred while \output is active []
 
- [19
+ [21
 
 ]
 LaTeX Info: Symbol \textminus not provided by
@@ -834,86 +882,25 @@ LaTeX Info: Symbol \textminus not provided by
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [20] [21] [22
+ [22] [23] [24
 
 ]
 Appendix B.
 (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
-)
-Underfull \vbox (badness 2856) has occurred while \output is active []
-
- [23]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [24]
-LaTeX Info: Symbol \textminus not provided by
-            font family zpltlf in TS1 encoding.
-            Default family used instead on input line 192.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [25]
+) [25]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [26]
-LaTeX Info: Symbol \textminus not provided by
-            font family zpltlf in TS1 encoding.
-            Default family used instead on input line 288.
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [27]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [28]
-LaTeX Info: Symbol \textminus not provided by
-            font family zpltlf in TS1 encoding.
-            Default family used instead on input line 354.
-LaTeX Info: Symbol \textminus not provided by
-            font family zpltlf in TS1 encoding.
-            Default family used instead on input line 355.
-LaTeX Info: Symbol \textminus not provided by
-            font family zpltlf in TS1 encoding.
-            Default family used instead on input line 356.
-LaTeX Info: Symbol \textminus not provided by
-            font family zpltlf in TS1 encoding.
-            Default family used instead on input line 358.
-LaTeX Info: Symbol \textminus not provided by
-            font family zpltlf in TS1 encoding.
-            Default family used instead on input line 361.
-LaTeX Info: Symbol \textminus not provided by
-            font family zpltlf in TS1 encoding.
-            Default family used instead on input line 368.
-LaTeX Info: Symbol \textminus not provided by
-            font family zpltlf in TS1 encoding.
-            Default family used instead on input line 370.
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [29]
-LaTeX Info: Symbol \textminus not provided by
-            font family zpltlf in TS1 encoding.
-            Default family used instead on input line 377.
-LaTeX Info: Symbol \textminus not provided by
-            font family zpltlf in TS1 encoding.
-            Default family used instead on input line 384.
-LaTeX Info: Symbol \textminus not provided by
-            font family zpltlf in TS1 encoding.
-            Default family used instead on input line 387.
-LaTeX Info: Symbol \textminus not provided by
-            font family zpltlf in TS1 encoding.
-            Default family used instead on input line 387.
-LaTeX Info: Symbol \textminus not provided by
-            font family zpltlf in TS1 encoding.
-            Default family used instead on input line 387.
-LaTeX Info: Symbol \textminus not provided by
-            font family zpltlf in TS1 encoding.
-            Default family used instead on input line 404.
-LaTeX Info: Symbol \textminus not provided by
-            font family zpltlf in TS1 encoding.
-            Default family used instead on input line 406.
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [30]) [31] [32
@@ -929,17 +916,17 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 13349 strings out of 467871
- 209917 string characters out of 5418375
- 1122051 words of memory out of 5000000
- 41993 multiletter control sequences out of 15000+600000
- 692287 words of font info for 97 fonts, out of 8000000 for 9000
+ 13383 strings out of 467871
+ 211978 string characters out of 5418375
+ 1162355 words of memory out of 5000000
+ 42027 multiletter control sequences out of 15000+600000
+ 695316 words of font info for 98 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 74i,10n,97p,631b,1764s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 74i,10n,97p,631b,1836s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\nicol\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI.pfb><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI_gnu.pfb><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxmiaX.pfb><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxsys.pfb><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txexs.pfb><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplb.pfb><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplr.pfb><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplri.pfb>
-Output written on main_report.pdf (38 pages, 7574442 bytes).
+Output written on main_report.pdf (38 pages, 7707798 bytes).
 PDF statistics:
- 393 PDF objects out of 1000 (max. 8388607)
+ 486 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 76 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 96 words of extra memory for PDF output out of 10000 (max. 10000000)
 
