@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70218" creator="Ipe 7.2.29">
-<info created="D:20260102212846" modified="D:20260103131852"/>
+<info created="D:20260102212846" modified="D:20260103123458"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -1805,11 +1805,10 @@ h
 284 544 m
 284 536 l
 </path>
-<text matrix="1 0 0 1 28 -184" transformations="translations" pos="120 588" stroke="black" type="label" width="76.131" height="6.808" depth="0" halign="center" valign="center">XT-60 Connector</text>
-<path stroke="black" pen="0.5">
-96 412 m
-104 404 l
-108 404 l
+<path stroke="black" pen="0.5" arrow="normal/normal">
+272 560 m
+272 592 l
+304 592 l
 </path>
 </page>
 </ipe>

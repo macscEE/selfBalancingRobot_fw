@@ -25,6 +25,47 @@ The complete structure is shown in Figure \ref{fig:04_robot_strucuture}, while \
 During some initial tests it was found that the limited weight of the robot was not enough to ensure it stayed well connected to the ground. To reduce the loss of traction on smooth surfaces, we had to change the tire structure. Unfortunately, changing material is not really feasible, as not many flexible filaments options are available other than 95A TPU. Instead, we changed the tire density, lowering sparse infill to 15\% and eventually 8\%.
 To further add flexibility, the shoulder of the tire had to be increased too, resulting in a larger diameter. Thanks to this simple solution, the tire deforms enough under torque to stay well connected to smooth tabletops.
 
+\subsection{Circuit Schematics}
+The circuit shown in figure \ref{fig:04_circuit_schematic} was realised on a perforated board.
+The ESP32 family of microcontrollers are extremely versatile, so there are not many constraints when it comes to pin assigment, which has been reported in table \ref{tab:04_pin_assignment}.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|l|c|l|}
+    \hline
+    \textbf{Signal Name} & \textbf{GPIO} & \textbf{Function} \\
+    \hline
+    SDA\_PIN        & 21 & I2C Data (MPU6050) \\
+    SCL\_PIN        & 22 & I2C Clock (MPU6050) \\
+    \hline
+    DEBUG\_PIN\_1  & 2  & Debug signal (timing / state) \\
+    DEBUG\_PIN\_2  & 0  & Debug signal \\
+    \hline
+    M\_R\_forward  & 18 & Right motor forward PWM \\
+    M\_R\_backward & 17 & Right motor backward PWM \\
+    M\_L\_forward  & 4  & Left motor forward PWM \\
+    M\_L\_backward & 16 & Left motor backward PWM \\
+    \hline
+    \end{tabular}
+    \caption{GPIO pin assignment for the self-balancing robot}
+    \label{tab:04_pin_assignment}
+\end{table}
+
+Power is provided to the motor drivers thanks to two lithium-ion cells in series. This is done to ensure the nominal voltage of the motors is reached.
+Due to the low ESR (equivalent series resistance) of the cells, no DC/DC stage is needed to achieve fast transient response. 
+However, as can be seen from the schematics, a small buck module is used to provide $5 V$ to the ESP32 module when the USB cable is not connected. This voltage is then stepped down again on the module itself by an LDO (Low-DropOut regulator) to get 3.3V needed for the microcontroller and the inertial unit.
+The buck is needed in this configuration as the voltage drop from $8V$ to $3.3V$, at the given load, would be excessive for the small on-board linear regulator.
+
+A notable point we observed during testing is that the DC bus needs plenty of additional bulk capacitance to ensure voltage does not drop significantly during fast transients. In fact, the motors can react quite quickly, requiring a current spike that is limited by the power delivery path from cells to drivers.
+Even though the drivers already come fitted with small polymer capacitors, we added SMD $1 uF$ multilayer ceramic capacitors (low ESR, good for fast transient response) and $10 uF$ electrolytics (better energy density). In addition, a bigger aluminum electrolytic $1000 \mu F$ capacitor has been added directly at the board input.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\linewidth]{figures/04_implementation/full_schematics.pdf}
+    \caption{Block diagram and rough schematic of the whole system}
+\label{fig:04_circuit_schematic}
+\end{figure}
+
 \subsection{PID adjustments}
 
 The PID controller parameters obtained in Chapter \ref{chap_02:modelling} are a good starting point for the real 

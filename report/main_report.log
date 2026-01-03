@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.16)  2 JAN 2026 20:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.16)  3 JAN 2026 13:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -453,6 +453,9 @@ LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
 
 LaTeX Warning: Label `fig:02_blockDiagram' multiply defined.
 
+
+LaTeX Warning: Label `fig:04_robot_strucuture' multiply defined.
+
 )
 \openout1 = `main_report.aux'.
 
@@ -638,7 +641,13 @@ Package pdftex.def Info: figures/frontmatter/unipdbg.pdf  used on input line 46.
 {C:/Users/nicol/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}{C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ec-tlf.enc} <./figures/frontmatter/unipdbg.pdf> <./figures/frontmatter/0_logo_dei.pdf> <./figures/frontmatter/0_logo_unipd.pdf>]) [2
 
 
-] (chapter/00_abstract.tex) [1] [2
+] (chapter/00_abstract.tex
+<figures/04_implementation/jamal_01.png, id=33, 4015.0pt x 1854.93pt>
+File: figures/04_implementation/jamal_01.png Graphic file (type png)
+<use figures/04_implementation/jamal_01.png>
+Package pdftex.def Info: figures/04_implementation/jamal_01.png  used on input line 11.
+(pdftex.def)             Requested size: 455.24411pt x 210.2981pt.
+) [1 <./figures/04_implementation/jamal_01.png>] [2
 
 ]
 LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
@@ -657,7 +666,7 @@ LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
 (Font)              scaled to size 17.28pt on input line 25.
 LaTeX Font Info:    Font shape `T1/zpltlf/b/n' will be
 (Font)              scaled to size 17.28pt on input line 25.
-<figures/01_introduction/esp32.jpg, id=45, 602.25pt x 602.25pt>
+<figures/01_introduction/esp32.jpg, id=48, 602.25pt x 602.25pt>
 File: figures/01_introduction/esp32.jpg Graphic file (type jpg)
 <use figures/01_introduction/esp32.jpg>
 Package pdftex.def Info: figures/01_introduction/esp32.jpg  used on input line 40.
@@ -672,7 +681,7 @@ File: ts1zpltlf.fd 2021/11/24 v1.0 fd file for TS1/zpltlf
 )
 LaTeX Font Info:    Font shape `TS1/zpltlf/m/n' will be
 (Font)              scaled to size 12.0pt on input line 57.
-<figures/01_introduction/mpu6050.jpg, id=50, 833.1125pt x 501.875pt>
+<figures/01_introduction/mpu6050.jpg, id=53, 833.1125pt x 501.875pt>
 File: figures/01_introduction/mpu6050.jpg Graphic file (type jpg)
 <use figures/01_introduction/mpu6050.jpg>
 Package pdftex.def Info: figures/01_introduction/mpu6050.jpg  used on input line 67.
@@ -682,12 +691,12 @@ LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
 LaTeX Font Info:    Font shape `T1/zpltlf/b/n' will be
 (Font)              scaled to size 14.4pt on input line 76.
  [2{C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newpx/zpl_TOsF.enc}{C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newpx/px-lms.enc}{C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc} <./figures/01_introduction/esp32.jpg> <./figures/01_introduction/mpu6050.jpg>]
-<figures/01_introduction/dcMotor.jpg, id=58, 1565.85pt x 1043.9pt>
+<figures/01_introduction/dcMotor.jpg, id=61, 1565.85pt x 1043.9pt>
 File: figures/01_introduction/dcMotor.jpg Graphic file (type jpg)
 <use figures/01_introduction/dcMotor.jpg>
 Package pdftex.def Info: figures/01_introduction/dcMotor.jpg  used on input line 83.
 (pdftex.def)             Requested size: 182.09486pt x 121.39194pt.
-<figures/01_introduction/drv8833.jpeg, id=59, 722.7pt x 722.7pt>
+<figures/01_introduction/drv8833.jpeg, id=62, 722.7pt x 722.7pt>
 File: figures/01_introduction/drv8833.jpeg Graphic file (type jpg)
 <use figures/01_introduction/drv8833.jpeg>
 Package pdftex.def Info: figures/01_introduction/drv8833.jpeg  used on input line 97.
@@ -698,7 +707,7 @@ Package pdftex.def Info: figures/01_introduction/drv8833.jpeg  used on input lin
 Chapter 2.
 LaTeX Font Info:    Font shape `T1/zpltlf/m/it' will be
 (Font)              scaled to size 12.0pt on input line 8.
-<figures/01_introduction/inverse_pendulum.pdf, id=66, 122.50267pt x 155.49895pt>
+<figures/01_introduction/inverse_pendulum.pdf, id=69, 122.50267pt x 155.49895pt>
 File: figures/01_introduction/inverse_pendulum.pdf Graphic file (type pdf)
 <use figures/01_introduction/inverse_pendulum.pdf>
 Package pdftex.def Info: figures/01_introduction/inverse_pendulum.pdf  used on input line 12.
@@ -706,7 +715,7 @@ Package pdftex.def Info: figures/01_introduction/inverse_pendulum.pdf  used on i
 [5
 
  <./figures/01_introduction/inverse_pendulum.pdf>]
-<figures/02_modelling/motor_parasitics_resistance.pdf, id=88, 210.74736pt x 80.35822pt>
+<figures/02_modelling/motor_parasitics_resistance.pdf, id=91, 210.74736pt x 80.35822pt>
 File: figures/02_modelling/motor_parasitics_resistance.pdf Graphic file (type pdf)
 <use figures/02_modelling/motor_parasitics_resistance.pdf>
 Package pdftex.def Info: figures/02_modelling/motor_parasitics_resistance.pdf  used on input line 83.
@@ -723,67 +732,67 @@ Package epstopdf Info: Source file: <figures/02_modelling/inductance_measurement
 (epstopdf)                    date: 2026-01-02 20:35:28
 (epstopdf)                    size: 12314 bytes
 (epstopdf)             Command: <miktex-epstopdf --outfile=figures/02_modelling/inductance_measurement_twoperiods-eps-converted-to.pdf figures/02_modelling/inductance_measurement_twoperiods.eps>
-(epstopdf)             \includegraphics on input line 96.
+(epstopdf)             \includegraphics on input line 103.
 Package epstopdf Info: Output file is already uptodate.
-<figures/02_modelling/inductance_measurement_twoperiods-eps-converted-to.pdf, id=93, 370.38374pt x 236.885pt>
+<figures/02_modelling/inductance_measurement_twoperiods-eps-converted-to.pdf, id=96, 370.38374pt x 236.885pt>
 File: figures/02_modelling/inductance_measurement_twoperiods-eps-converted-to.pdf Graphic file (type pdf)
 <use figures/02_modelling/inductance_measurement_twoperiods-eps-converted-to.pdf>
-Package pdftex.def Info: figures/02_modelling/inductance_measurement_twoperiods-eps-converted-to.pdf  used on input line 96.
+Package pdftex.def Info: figures/02_modelling/inductance_measurement_twoperiods-eps-converted-to.pdf  used on input line 103.
 (pdftex.def)             Requested size: 204.85846pt x 131.0209pt.
 LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
-(Font)              scaled to size 10.95pt on input line 97.
+(Font)              scaled to size 10.95pt on input line 104.
 Package epstopdf Info: Source file: <figures/02_modelling/inductance_measurement.eps>
-(epstopdf)                    date: 2026-01-02 19:07:57
-(epstopdf)                    size: 33982 bytes
+(epstopdf)                    date: 2026-01-03 12:18:38
+(epstopdf)                    size: 43920 bytes
 (epstopdf)             Output file: <figures/02_modelling/inductance_measurement-eps-converted-to.pdf>
-(epstopdf)                    date: 2026-01-02 19:11:20
-(epstopdf)                    size: 12329 bytes
+(epstopdf)                    date: 2026-01-03 12:18:41
+(epstopdf)                    size: 18561 bytes
 (epstopdf)             Command: <miktex-epstopdf --outfile=figures/02_modelling/inductance_measurement-eps-converted-to.pdf figures/02_modelling/inductance_measurement.eps>
-(epstopdf)             \includegraphics on input line 101.
+(epstopdf)             \includegraphics on input line 108.
 Package epstopdf Info: Output file is already uptodate.
-<figures/02_modelling/inductance_measurement-eps-converted-to.pdf, id=94, 370.38374pt x 236.885pt>
+<figures/02_modelling/inductance_measurement-eps-converted-to.pdf, id=97, 370.38374pt x 236.885pt>
 File: figures/02_modelling/inductance_measurement-eps-converted-to.pdf Graphic file (type pdf)
 <use figures/02_modelling/inductance_measurement-eps-converted-to.pdf>
-Package pdftex.def Info: figures/02_modelling/inductance_measurement-eps-converted-to.pdf  used on input line 101.
+Package pdftex.def Info: figures/02_modelling/inductance_measurement-eps-converted-to.pdf  used on input line 108.
 (pdftex.def)             Requested size: 204.85846pt x 131.0209pt.
 
-Overfull \hbox (1.79993pt too wide) in paragraph at lines 94--104
+Overfull \hbox (1.79993pt too wide) in paragraph at lines 101--111
 [][] [] 
  []
 
-<figures/02_modelling/motor_parasitics_oscilloscope.pdf, id=95, 230.20003pt x 76.34322pt>
+<figures/02_modelling/motor_parasitics_oscilloscope.pdf, id=98, 230.20003pt x 76.34322pt>
 File: figures/02_modelling/motor_parasitics_oscilloscope.pdf Graphic file (type pdf)
 <use figures/02_modelling/motor_parasitics_oscilloscope.pdf>
-Package pdftex.def Info: figures/02_modelling/motor_parasitics_oscilloscope.pdf  used on input line 110.
+Package pdftex.def Info: figures/02_modelling/motor_parasitics_oscilloscope.pdf  used on input line 117.
 (pdftex.def)             Requested size: 318.66948pt x 105.68803pt.
 [7 <./figures/02_modelling/motor_parasitics_resistance.pdf> <./figures/02_modelling/inductance_measurement_twoperiods-eps-converted-to.pdf> <./figures/02_modelling/inductance_measurement-eps-converted-to.pdf> <./figures/02_modelling/motor_parasitics_oscilloscope.pdf>]
-<figures/02_modelling/blockDiagram.pdf, id=189, 211.5895pt x 40.81247pt>
+<figures/02_modelling/blockDiagram.pdf, id=192, 211.5895pt x 40.81247pt>
 File: figures/02_modelling/blockDiagram.pdf Graphic file (type pdf)
 <use figures/02_modelling/blockDiagram.pdf>
-Package pdftex.def Info: figures/02_modelling/blockDiagram.pdf  used on input line 125.
+Package pdftex.def Info: figures/02_modelling/blockDiagram.pdf  used on input line 132.
 (pdftex.def)             Requested size: 318.66948pt x 61.47385pt.
  (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
 )
 LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
-(Font)              scaled to size 6.0pt on input line 146.
+(Font)              scaled to size 6.0pt on input line 153.
 LaTeX Info: Symbol \textminus not provided by
             font family zpltlf in TS1 encoding.
-            Default family used instead on input line 147.
+            Default family used instead on input line 154.
 LaTeX Info: Symbol \textminus not provided by
             font family zpltlf in TS1 encoding.
-            Default family used instead on input line 153.
+            Default family used instead on input line 160.
  [8 <./figures/02_modelling/blockDiagram.pdf>]
-<figures/02_modelling/Step response of the closed loop system.pdf, id=230, 701.62125pt x 464.73625pt>
+<figures/02_modelling/Step response of the closed loop system.pdf, id=233, 701.62125pt x 464.73625pt>
 File: figures/02_modelling/Step response of the closed loop system.pdf Graphic file (type pdf)
 <use figures/02_modelling/Step response of the closed loop system.pdf>
-Package pdftex.def Info: figures/02_modelling/Step response of the closed loop system.pdf  used on input line 177.
+Package pdftex.def Info: figures/02_modelling/Step response of the closed loop system.pdf  used on input line 184.
 (pdftex.def)             Requested size: 409.71692pt x 271.39095pt.
 ) [9 <./figures/02_modelling/Step response of the closed loop system.pdf>] [10
 
 ] (chapter/03_control.tex
 Chapter 3.
-<figures/03_control/03_simplified_system.pdf, id=256, 490.2314pt x 81.20337pt>
+<figures/03_control/03_simplified_system.pdf, id=259, 490.2314pt x 81.20337pt>
 File: figures/03_control/03_simplified_system.pdf Graphic file (type pdf)
 <use figures/03_control/03_simplified_system.pdf>
 Package pdftex.def Info: figures/03_control/03_simplified_system.pdf  used on input line 11.
@@ -791,7 +800,7 @@ Package pdftex.def Info: figures/03_control/03_simplified_system.pdf  used on in
 [11
 
  <./figures/03_control/03_simplified_system.pdf>]
-<figures/03_control/03_angle_estimation.pdf, id=301, 369.7815pt x 92.7485pt>
+<figures/03_control/03_angle_estimation.pdf, id=304, 369.7815pt x 92.7485pt>
 File: figures/03_control/03_angle_estimation.pdf Graphic file (type pdf)
 <use figures/03_control/03_angle_estimation.pdf>
 Package pdftex.def Info: figures/03_control/03_angle_estimation.pdf  used on input line 52.
@@ -812,7 +821,7 @@ LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
 LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
 (Font)              scaled to size 10.0pt on input line 61.
  [12{C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/inconsolata/i4-t1-0.enc} <./figures/03_control/03_angle_estimation.pdf>]
-<figures/03_control/03_state_machine.pdf, id=339, 337.6625pt x 225.2415pt>
+<figures/03_control/03_state_machine.pdf, id=342, 337.6625pt x 225.2415pt>
 File: figures/03_control/03_state_machine.pdf Graphic file (type pdf)
 <use figures/03_control/03_state_machine.pdf>
 Package pdftex.def Info: figures/03_control/03_state_machine.pdf  used on input line 121.
@@ -824,12 +833,11 @@ LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
 (Font)              scaled to size 6.6pt on input line 144.
  [14 <./figures/03_control/03_state_machine.pdf>] [15]) [16] (chapter/04_physicalImplem.tex
 Chapter 4.
-<figures/04_implementation/jamal_01.png, id=375, 4015.0pt x 1854.93pt>
 File: figures/04_implementation/jamal_01.png Graphic file (type png)
 <use figures/04_implementation/jamal_01.png>
 Package pdftex.def Info: figures/04_implementation/jamal_01.png  used on input line 11.
 (pdftex.def)             Requested size: 318.66948pt x 147.20866pt.
-<figures/04_implementation/tires.jpg, id=377, 4015.0pt x 1854.93pt>
+<figures/04_implementation/tires.jpg, id=378, 4015.0pt x 1854.93pt>
 File: figures/04_implementation/tires.jpg Graphic file (type jpg)
 <use figures/04_implementation/tires.jpg>
 Package pdftex.def Info: figures/04_implementation/tires.jpg  used on input line 20.
@@ -840,12 +848,23 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 [17
 
 
- <./figures/04_implementation/jamal_01.png>]) [18 <./figures/04_implementation/tires.jpg>] (chapter/05_coclusions.tex
+]
+<figures/04_implementation/full_schematics.pdf, id=382, 492.5341pt x 185.02124pt>
+File: figures/04_implementation/full_schematics.pdf Graphic file (type pdf)
+<use figures/04_implementation/full_schematics.pdf>
+Package pdftex.def Info: figures/04_implementation/full_schematics.pdf  used on input line 64.
+(pdftex.def)             Requested size: 455.24411pt x 171.01207pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[18 <./figures/04_implementation/tires.jpg>]) [19 <./figures/04_implementation/full_schematics.pdf>] [20
+
+] (chapter/05_coclusions.tex
 Chapter 5.
-) [19
+) [21
 
-
-] [20
+] [22
 
 ] (chapter/ZZ_appendixCoding.tex
 Appendix A.
@@ -867,7 +886,7 @@ LaTeX Info: Symbol \textminus not provided by
 
 Underfull \vbox (badness 1460) has occurred while \output is active []
 
- [21
+ [23
 
 ]
 LaTeX Info: Symbol \textminus not provided by
@@ -882,19 +901,13 @@ LaTeX Info: Symbol \textminus not provided by
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [22] [23] [24
+ [24] [25] [26
 
 ]
 Appendix B.
 (C:\Users\nicol\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
-) [25]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [26]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [27]
+) [27]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [28]
@@ -903,7 +916,13 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [29]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [30]) [31] [32
+ [30]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [31]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [32]) [33] [34
 
 ] (main_report.aux)
  ***********
@@ -916,17 +935,17 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 13383 strings out of 467871
- 211978 string characters out of 5418375
- 1162355 words of memory out of 5000000
- 42027 multiletter control sequences out of 15000+600000
+ 13393 strings out of 467871
+ 212446 string characters out of 5418375
+ 1162487 words of memory out of 5000000
+ 42037 multiletter control sequences out of 15000+600000
  695316 words of font info for 98 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  74i,10n,97p,631b,1836s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\nicol\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI.pfb><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI_gnu.pfb><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxmiaX.pfb><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxsys.pfb><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txexs.pfb><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplb.pfb><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplr.pfb><C:/Users/nicol/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplri.pfb>
-Output written on main_report.pdf (38 pages, 7707798 bytes).
+Output written on main_report.pdf (40 pages, 7783745 bytes).
 PDF statistics:
- 486 PDF objects out of 1000 (max. 8388607)
+ 540 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 96 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 101 words of extra memory for PDF output out of 10000 (max. 10000000)
 

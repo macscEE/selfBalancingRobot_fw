@@ -90,6 +90,13 @@ Firstly, we set up the generator in square-wave mode, with an arbitrary amplitud
 
 The frequency for this test must be chosen so that a proper step response can be seen. What we are interested in is the inductive behaviour, that here is recognized in the time it takes for the voltage to decay to its steady state value after the initial peak. 
 The resulting capture, seen in figure \ref{fig:02_inductance_measurement}, can be fitted numerically on an exponential curve and the result of $50 \mu H$ is computed.
+
+\begin{equation}
+    v(t) = a \cdot \exp(b \cdot t) + \frac{R}{R+R_g} \implies
+    b = -\frac{1}{\tau} = - \frac{R}{L} \implies L = - \frac{R}{b} 
+    \label{eq:02_inductance_curve_fitting} 
+\end{equation}
+
 \begin{figure}[h]
     \begin{subfigure}{.5\textwidth}
         \centering

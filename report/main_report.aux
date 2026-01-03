@@ -2,12 +2,13 @@
 \providecommand \babel@aux [2]{\global \let \babel@toc \@gobbletwo }
 \@nameuse{bbl@beforestart}
 \babel@aux{english}{}
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:04_robot_strucuture}{{\caption@xref {fig:04_robot_strucuture}{ on input line 13}}{i}{}{}{}}
 \@writefile{toc}{\contentsline {chapter}{\numberline {1}Introduction}{1}{}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \newlabel{ch:01_introduction}{{1}{1}{}{chapter.1}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {1.1}{\ignorespaces Main components of the self-balancing robot}}{1}{}\protected@file@percent }
-\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
 \newlabel{tab:01_componentsList}{{1.1}{1}{}{table.1.1}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {1.1}ESP32 Microcontroller}{1}{}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {1.1}{\ignorespaces ESP32 development board}}{2}{}\protected@file@percent }
@@ -39,6 +40,7 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}Motor Parameter Measurements}{6}{}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces Block diagram of the resistance measurement setup}}{7}{}\protected@file@percent }
 \newlabel{fig:02_resistance_measurement_setup}{{2.2}{7}{}{figure.2.2}{}}
+\newlabel{eq:02_inductance_curve_fitting}{{2.6}{7}{}{equation.2.6}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces Inductance measurement waveform}}{7}{}\protected@file@percent }
 \newlabel{fig:02_inductance_measurement}{{2.3}{7}{}{figure.2.3}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2.4}{\ignorespaces Block diagram of the inductance measurement setup}}{7}{}\protected@file@percent }
@@ -97,24 +99,29 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.0.1}Mechanical structure}{17}{}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Robot}}{17}{}\protected@file@percent }
 \newlabel{fig:04_robot_strucuture}{{4.1}{17}{}{figure.4.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.0.2}PID adjustments}{17}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.0.2}Circuit Schematics}{17}{}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Different tire geometries tried for the robot. Left to right for lower infill density and higher friction coefficient}}{18}{}\protected@file@percent }
 \newlabel{fig:04_tires}{{4.2}{18}{}{figure.4.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.0.3}Other adjustments}{18}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Conclusions}{19}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces GPIO pin assignment for the self-balancing robot}}{18}{}\protected@file@percent }
+\newlabel{tab:04_pin_assignment}{{4.1}{18}{}{table.4.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Block diagram and rough schematic of the whole system}}{19}{}\protected@file@percent }
+\newlabel{fig:04_circuit_schematic}{{4.3}{19}{}{figure.4.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.0.3}PID adjustments}{19}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.0.4}Other adjustments}{19}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Conclusions}{21}{}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chap_05:conclusions}{{5}{19}{}{chapter.5}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {A}MATLAB code}{21}{}\protected@file@percent }
+\newlabel{chap_05:conclusions}{{5}{21}{}{chapter.5}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}MATLAB code}{23}{}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chap_ZZ:appendixMatlab}{{A}{21}{}{chapter.1}{}}
-\newlabel{lst:ZZ_pidTuning}{{A.1}{21}{}{lstlisting.1.1}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.1}{\ignorespaces MATLAB code for PID tuning}}{21}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {B}ESP32 code}{25}{}\protected@file@percent }
+\newlabel{chap_ZZ:appendixMatlab}{{A}{23}{}{chapter.1}{}}
+\newlabel{lst:ZZ_pidTuning}{{A.1}{23}{}{lstlisting.1.1}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.1}{\ignorespaces MATLAB code for PID tuning}}{23}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {B}ESP32 code}{27}{}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chap_ZZ:appendixESP32}{{B}{25}{}{chapter.2}{}}
-\newlabel{lst:ZZ_firmware}{{B.1}{25}{}{lstlisting.2.1}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {B.1}{\ignorespaces Arduino code for ESP 32}}{25}{}\protected@file@percent }
-\gdef \@abspage@last{38}
+\newlabel{chap_ZZ:appendixESP32}{{B}{27}{}{chapter.2}{}}
+\newlabel{lst:ZZ_firmware}{{B.1}{27}{}{lstlisting.2.1}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {B.1}{\ignorespaces Arduino code for ESP 32}}{27}{}\protected@file@percent }
+\gdef \@abspage@last{40}
