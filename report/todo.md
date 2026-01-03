@@ -1,7 +1,7 @@
 # TO-DO LIST report
 
 ---
-- Last Modified: 2025/12/21 19:09:08
+- Last Modified: 2025/12/31 16:40:56
 ---
 
 # General
@@ -22,7 +22,7 @@
 - [ ] revise
 
 # Chapter 4
-- [ ] add image of the full robot
+- [x] add image of the full robot
 - [ ] revise
 
 # Chapter 5
@@ -30,6 +30,6 @@
 
 # Appendix
 - [x] Review of MATLAB code
-- [ ] Add code of ESP32
-- [ ] Review code ESP32
+- [x] Add code of ESP32
+- [x] Review code ESP32
 - [ ] revise

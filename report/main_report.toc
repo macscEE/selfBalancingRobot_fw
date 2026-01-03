@@ -25,8 +25,9 @@
 \contentsline {subsection}{\numberline {3.4.3}Serial Output Buffering}{16}{}%
 \contentsline {chapter}{\numberline {4}Physical Implementation}{17}{}%
 \contentsline {subsection}{\numberline {4.0.1}Mechanical structure}{17}{}%
-\contentsline {subsection}{\numberline {4.0.2}PID adjustments}{17}{}%
-\contentsline {subsection}{\numberline {4.0.3}Other adjustments}{18}{}%
-\contentsline {chapter}{\numberline {5}Conclusions}{19}{}%
-\contentsline {chapter}{\numberline {A}MATLAB code}{21}{}%
-\contentsline {chapter}{\numberline {B}ESP32 code}{25}{}%
+\contentsline {subsection}{\numberline {4.0.2}Circuit Schematics}{17}{}%
+\contentsline {subsection}{\numberline {4.0.3}PID adjustments}{19}{}%
+\contentsline {subsection}{\numberline {4.0.4}Other adjustments}{19}{}%
+\contentsline {chapter}{\numberline {5}Conclusions}{21}{}%
+\contentsline {chapter}{\numberline {A}MATLAB code}{23}{}%
+\contentsline {chapter}{\numberline {B}ESP32 code}{27}{}%
