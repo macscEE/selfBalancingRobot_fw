@@ -33,6 +33,7 @@ The gyroscope outputs angular velocity $\omega(t)$ readings along the three rota
 \label{eq:03_gyroscope_angle}
 \end{equation}
 
+\noindent
 The angle obtained from this method is fast, but imprecise. At the same time, it is gravely affected by low-frequency drift and, on its own, it is not suitable for our robot.
 
 \subsection{Complementary Filter}
@@ -44,7 +45,7 @@ We used the following complementary filter to mix the readings:
 + (1 - \alpha)\, \theta_{\mathrm{acc}}[k]
 \label{eq:03_fusion_angle}
 \end{equation}
-
+\noindent
 We found empirically that the $\alpha$ parameter must be very high, in the order of $0.90 - 0.99$, to guarantee the quick response from the gyroscope to be dominant.
 The output from this filter is both stable and clean at low frequency and fast for quick transients, providing already a strong derivative action that acts regardless of the PID regulator. Also for this reason, the system had to be tuned experimentally. 
 \begin{figure}[h]
@@ -159,6 +160,7 @@ void IRAM_ATTR Timer0_ISR(){
 }
 \end{lstlisting}
 
+\noindent
 In the main loop, we simply detect the value of the global flag \texttt{tick}. If this flag is set to \texttt{true}, it means the ISR has been called, and we can move on to our code.
 Otherwise, if the flag is not set, the software keeps running in the outer loop. 
 Note that while the software is running, the microcontroller is not necessarily idle: if it was, we would be heavily bottlenecking our system and needlessly reducing our bandwidth. Instead, the microcontroller is simply receiving data from the MPU6050, computing PID or sending out data over serial.
@@ -200,6 +202,7 @@ To compensate for these variations, the actual sampling interval $\Delta t_k$ ca
 \label{eq:03_gyro_adaptive}
 \end{equation}
 
+\noindent
 In our code (\ref{lst:03_adaptive_window_size}) we used the function "micros()" to obtain the absolute time of the current function call. Subtracting the value of the previous function call, stored in the global variable "imuFilter\_lastCall", we can obtain the current $\Delta t_k$.
 We also introduced a simple initialization to ensure the expected sampling time $\Delta t_k = 1 ms$ is applied to the first computation.
 
